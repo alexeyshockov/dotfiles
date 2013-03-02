@@ -1,0 +1,3 @@
+# Vi mode. See http://vim.wikia.com/wiki/Use_vi_shortcuts_in_terminal for more details.
+#set editing-mode vi
+#set keymap vi

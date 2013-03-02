@@ -1,0 +1,7 @@
+[user]
+	name = Alexey Shockov
+	email = alexey@shockov.com
+[color]
+	ui = true
+[branch]
+	autosetuprebase = always
