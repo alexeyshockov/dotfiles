@@ -3,5 +3,22 @@
 	email = alexey@shockov.com
 [color]
 	ui = true
+[core]
+	autocrlf = input
 [branch]
 	autosetuprebase = always
+[help]
+	autocorrect = 1
+[apply]
+	whitespace = fix
+[github]
+	user = alexeyshockov
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpuser = alexey@shockov.com
+	smtpserverport = 587
+	smtpencryption = tls
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+[hub]
+	protocol = https
