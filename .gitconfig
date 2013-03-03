@@ -5,6 +5,8 @@
 	ui = true
 [core]
 	autocrlf = input
+	editor = nano
+	whitespace = trailing-space,space-before-tab
 [branch]
 	autosetuprebase = always
 [help]
