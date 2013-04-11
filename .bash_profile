@@ -22,7 +22,11 @@ PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
 
 PATH="/usr/local/share/python:$PATH"
 
+PATH="/usr/local/share/npm/bin:$PATH"
+
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 
 export CLICOLOR="1"
 export LSCOLORS="GxFxCxDxBxegedabagaced"
+
+. `brew --prefix`/etc/profile.d/z.sh

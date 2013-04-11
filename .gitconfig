@@ -7,6 +7,9 @@
 	autocrlf = input
 	editor = nano
 	whitespace = trailing-space,space-before-tab
+	excludesfile = ~/.gitignore
+[clean]
+	requireForce = true
 [branch]
 	autosetuprebase = always
 [help]
