@@ -26,6 +26,8 @@ PATH="/usr/local/share/python:$PATH"
 
 PATH="/usr/local/share/npm/bin:$PATH"
 
+PATH="$HOME/bin:$PATH"
+
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 
 export CLICOLOR="1"
