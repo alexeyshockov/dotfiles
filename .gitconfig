@@ -28,5 +28,6 @@
 	st = status -sb
 	ready = rebase -i @{u}
 	standup = "!git log --since yesterday --author `git config user.email`"
+	ignored = ls-files --others -i --exclude-standard
 [hub]
 	protocol = https
