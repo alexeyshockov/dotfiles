@@ -25,6 +25,7 @@
 	smtpencryption = tls
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
 	st = status -sb
 	ready = rebase -i @{u}
 	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
