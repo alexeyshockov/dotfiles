@@ -31,3 +31,5 @@
 	ignored = ls-files --others -i --exclude-standard
 [hub]
 	protocol = https
+[rerere]
+	enabled = true
