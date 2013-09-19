@@ -27,8 +27,9 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 	st = status -sb
 	ready = rebase -i @{u}
-	standup = "!git log --since yesterday --author `git config user.email`"
+	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
 	ignored = ls-files --others -i --exclude-standard
+	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
 [hub]
 	protocol = https
 [rerere]
