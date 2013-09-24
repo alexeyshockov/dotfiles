@@ -34,3 +34,5 @@ export CLICOLOR="1"
 export LSCOLORS="GxFxCxDxBxegedabagaced"
 
 . `brew --prefix`/etc/profile.d/z.sh
+
+alias gnetstat="sudo lsof -i -P"
