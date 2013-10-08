@@ -1,37 +1,52 @@
 [user]
 	name = Alexey Shockov
 	email = alexey@shockov.com
+
 [color]
 	ui = true
+
 [core]
 	autocrlf = input
 	editor = nano
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
+
 [clean]
 	requireForce = true
+
 [branch]
 	autosetuprebase = always
+
 [help]
 	autocorrect = 1
+
 [apply]
 	whitespace = fix
+
 [github]
 	user = alexeyshockov
+
 [sendemail]
 	smtpserver = smtp.gmail.com
 	smtpuser = alexey@shockov.com
 	smtpserverport = 587
 	smtpencryption = tls
+
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
-	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
 	st = status -sb
-	ready = rebase -i @{u}
+    v = log --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --abbrev-commit --date=short -1
+
 	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
-	ignored = ls-files --others -i --exclude-standard
 	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
+
+	ignored = ls-files --others -i --exclude-standard
+
+    up = "!(git add -A . && git stash && git pull >&2) | grep -v 'No local changes to save' && git stash pop"
+	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
+
 [hub]
 	protocol = https
+
 [rerere]
 	enabled = true
