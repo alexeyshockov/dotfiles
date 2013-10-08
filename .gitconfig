@@ -45,6 +45,9 @@
 	up = "!(git add -A . && git stash && git pull >&2) | grep -v 'No local changes to save' && git stash pop"
 	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
 
+	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
+	# Command clean-origin-branches is in ~/bin/git-clean-origin-branches file.
+
 [hub]
 	protocol = https
 
