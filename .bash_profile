@@ -37,3 +37,4 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 
 alias gnetstat="sudo lsof -i -P"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
+alias la='ls -lAhtF'
