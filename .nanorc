@@ -2,3 +2,6 @@ set const
 set regexp
 set smooth
 set tabsize 4
+
+bind M-F nextword all
+bind M-B prevword all
