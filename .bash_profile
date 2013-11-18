@@ -35,6 +35,7 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 
 . `brew --prefix`/etc/profile.d/z.sh
 
-alias gnetstat="sudo lsof -i -P"
+alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
-alias la='ls -lAhtF'
+alias ll='ls -alF'
+alias la='ls -lAht'
