@@ -46,7 +46,7 @@
 	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
 	unstage = "reset HEAD --"
 
-    # Use case: git push origin master && git push upstream master
+	# Use case: git push origin master && git push upstream master
 	push-to-all = "!git push origin `git rev-parse --abbrev-ref HEAD` && git push upstream `git rev-parse --abbrev-ref HEAD`"
 
 	# What will be received?
