@@ -22,13 +22,13 @@ PATH=${PATH/:\/usr\/local\/bin/}
 PATH="/usr/local/bin:$PATH"
 PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
 
-PATH="/usr/local/share/python:$PATH"
-
 PATH="/usr/local/share/npm/bin:$PATH"
 
 PATH="$HOME/bin:$PATH"
 
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
+
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 export CLICOLOR="1"
 export LSCOLORS="GxFxCxDxBxegedabagaced"
