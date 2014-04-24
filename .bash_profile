@@ -39,3 +39,4 @@ alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll='ls -alF'
 alias la='ls -lAht'
+alias grep="grep --color=always"
