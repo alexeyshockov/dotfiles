@@ -11,7 +11,7 @@ export LC_TIME="C"
 
 export EDITOR="nano"
 
-source liquidprompt/liquidprompt
+source ~/liquidprompt/liquidprompt
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -20,7 +20,6 @@ fi
 PATH=${PATH/:\/usr\/local\/bin/}
 
 PATH="/usr/local/bin:$PATH"
-PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
 
 PATH="/usr/local/share/npm/bin:$PATH"
 
@@ -37,6 +36,7 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
-alias ll='ls -alF'
-alias la='ls -lAht'
+alias ll="ls -alF"
+alias la="ls -lAht"
 alias grep="grep --color=always"
+alias git="hub"
