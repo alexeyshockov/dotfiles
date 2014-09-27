@@ -1,3 +1,6 @@
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = git://github.com/nojhan/liquidprompt.git
+[submodule "symfony2-autocomplete"]
+	path = symfony2-autocomplete
+	url = git@github.com:KnpLabs/symfony2-autocomplete.git

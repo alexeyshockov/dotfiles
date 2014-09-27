@@ -34,6 +34,9 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 
 . `brew --prefix`/etc/profile.d/z.sh
 
+# Symfony 2 autocompletion for console commands.
+. ~/symfony2-autocomplete/symfony2-autocomplete.bash
+
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll="ls -alF"
