@@ -35,6 +35,7 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 	st = status -sb
+	s = status
 	v = log --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --abbrev-commit --date=short -1
 
 	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"

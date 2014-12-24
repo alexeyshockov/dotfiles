@@ -27,6 +27,8 @@ PATH="$HOME/bin:$PATH"
 
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 
+export PATH
+
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 export CLICOLOR="1"
@@ -43,3 +45,6 @@ alias ll="ls -alF"
 alias la="ls -lAht"
 alias grep="grep --color=always"
 alias git="hub"
+
+# Maven options (useful for mvn camel:run).
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
