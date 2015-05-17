@@ -4,9 +4,14 @@
 
 Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
 
-Install all programms over Homebrew with [bundle](https://github.com/Homebrew/homebrew-bundle) (from ~/Brewfile):
+Install programms over Homebrew with [bundle](https://github.com/Homebrew/homebrew-bundle) (from ~/Brewfile):
 ```
 $ brew bundle
+```
+
+Install programms over Composer:
+```
+$ composer g install
 ```
 
 ## Unatomated Things
