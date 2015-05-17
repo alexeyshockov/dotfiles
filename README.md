@@ -9,6 +9,11 @@ Install programms over Homebrew with [bundle](https://github.com/Homebrew/homebr
 $ brew bundle
 ```
 
+Link additional configuration to PHP:
+```
+$ ln -s ~/php.ini $(php --ini | grep "Scan for additional .ini files in" | cut -d ':' -f 2)/local.ini
+```
+
 Install programms over Composer:
 ```
 $ composer g install
