@@ -19,14 +19,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-PATH=${PATH/:\/usr\/local\/bin/}
-
-PATH="/usr/local/bin:$PATH"
-
 PATH="/usr/local/share/npm/bin:$PATH"
-
 PATH="$HOME/bin:$PATH"
-
+PATH="$HOME/.composer/vendor/bin:$PATH"
+# Add /usr/local/sbin to $PATH by replacing.
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 
 export PATH

@@ -2,7 +2,7 @@
 
 ## On Fresh System
 
-Install [Homebrew](http://brew.sh/).
+Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
 
 Install all programms over Homebrew with [bundle](https://github.com/Homebrew/homebrew-bundle) (from ~/Brewfile):
 ```
