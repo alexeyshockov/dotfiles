@@ -5,14 +5,14 @@ shell_patterns=1
 auto_save_setup=1
 preallocate_space=0
 auto_menu=0
-use_internal_view=1
-use_internal_edit=1
+use_internal_view=0
+use_internal_edit=0
 clear_before_exec=1
 confirm_delete=1
 confirm_overwrite=1
 confirm_execute=0
 confirm_history_cleanup=1
-confirm_exit=1
+confirm_exit=0
 confirm_directory_hotlist_delete=1
 safe_delete=0
 mouse_repeat_rate=100
@@ -60,6 +60,7 @@ editor_option_typewriter_wrap=0
 editor_edit_confirm_save=1
 editor_syntax_highlighting=1
 editor_persistent_selections=1
+editor_drop_selection_on_copy=1
 editor_cursor_beyond_eol=0
 editor_cursor_after_inserted_block=0
 editor_visible_tabs=1
@@ -69,25 +70,17 @@ editor_simple_statusbar=0
 editor_check_new_line=0
 editor_show_right_margin=0
 editor_group_undo=0
+editor_ask_filename_before_edit=0
 nice_rotating_dash=1
 mcview_remember_file_position=0
 auto_fill_mkdir_name=1
 copymove_persistent_attr=1
-select_flags=6
 editor_backup_extension=~
+editor_filesize_threshold=64M
+editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 ignore_ftp_chattr_errors=true
-keymap=
 skin=default
-
-filepos_max_saved_entries=1024
-
-editor_ask_filename_before_edit=0
-
-editor_filesize_threshold=64M
-
-editor_drop_selection_on_copy=1
-editor_stop_format_chars=-+*\\,.;:&>
 
 [Layout]
 message_visible=1
@@ -137,13 +130,10 @@ filetype_mode=true
 permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
-
-simple_swap=false
-
 select_flags=6
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
-Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm +011 \\) -o \\( -perm -02000 -a -perm +01 \\) \\) -print
+Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
 Find rejects after patching=find . -name \\*.rej -print
 Modified git files=git ls-files --modified

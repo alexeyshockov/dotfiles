@@ -65,3 +65,8 @@ function skip {
     n=$(($1 + 1))
     cut -d' ' -f$n-
 }
+
+# Generate random string with given length. 32 by default.
+function rand {
+    cat /dev/urandom | gtr -dc 'A-HJ-NP-Za-km-z2-9' | fold -w ${1:-32} | head -n 1
+}
