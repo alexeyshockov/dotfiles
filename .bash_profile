@@ -46,6 +46,7 @@ alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll="ls -alFh"
 alias la="ls -lAht"
 alias grep="ggrep --color=always"
+alias find="gfind"
 alias git="hub"
 
 # Maven options (useful for mvn camel:run).
@@ -62,11 +63,11 @@ function col {
 
 # From https://developer.atlassian.com/blog/2015/02/ten-tips-for-wonderful-bash-productivity/
 function skip {
-    n=$(($1 + 1))
-    cut -d' ' -f$n-
+  n=$(($1 + 1))
+  cut -d' ' -f$n-
 }
 
 # Generate random string with given length. 32 by default.
 function rand {
-    cat /dev/urandom | gtr -dc 'A-HJ-NP-Za-km-z2-9' | fold -w ${1:-32} | head -n 1
+  cat /dev/urandom | gtr -dc 'A-HJ-NP-Za-km-z2-9' | fold -w ${1:-32} | head -n 1
 }

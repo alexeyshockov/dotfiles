@@ -1,0 +1,19 @@
+#
+# Missed completions.
+#
+
+# For lunchy command (https://github.com/eddiezane/lunchy).
+function _lunchy {
+  COMPREPLY=()
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  local cur_pos=$COMP_CWORD;
+
+  case "$cur_pos" in
+    1) COMPREPLY=($(compgen -W 'ls list start stop restart status install uninstall show edit' -- $cur))
+       ;;
+    *) COMPREPLY=($(compgen -W '$(lunchy list | grep homebrew | cut -f 3 -d .)' -- $cur))
+       ;;
+  esac
+}
+
+complete -F _lunchy -o default lunchy
