@@ -19,11 +19,21 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.bash ]; then
+  . $LUNCHY_DIR/lunchy-completion.bash
+fi
+
+export GOPATH=$HOME/go
+
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
+# For Go Homebrew package.
+PATH=$PATH:/usr/local/opt/go/libexec/bin
+PATH=$PATH:$GOPATH/bin
 
 export PATH
 
@@ -48,6 +58,11 @@ alias la="ls -lAht"
 alias grep="ggrep --color=always"
 alias find="gfind"
 alias git="hub"
+alias g="git"
+# Public IP address.
+alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# Local IP address.
+alias local-ip="ipconfig getifaddr en0"
 
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"

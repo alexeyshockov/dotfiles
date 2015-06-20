@@ -2,18 +2,43 @@
 # Missed completions.
 #
 
-# For lunchy command (https://github.com/eddiezane/lunchy).
-function _lunchy {
-  COMPREPLY=()
-  local cur=${COMP_WORDS[COMP_CWORD]}
-  local cur_pos=$COMP_CWORD;
+# For Python's fabric tool: fab(1).
+#
+# See PRs for details:
+#  - https://github.com/fabric/fabric/pull/913/files
+#  - https://github.com/fabric/fabric/issues/6
+_fab()
+{
+    local cur prev
 
-  case "$cur_pos" in
-    1) COMPREPLY=($(compgen -W 'ls list start stop restart status install uninstall show edit' -- $cur))
-       ;;
-    *) COMPREPLY=($(compgen -W '$(lunchy list | grep homebrew | cut -f 3 -d .)' -- $cur))
-       ;;
-  esac
+    COMPREPLY=()
+    _get_comp_words_by_ref cur prev
+
+    case $prev in
+        -H)
+            _known_hosts_real -a "$cur"
+
+            return 0
+            ;;
+        -f)
+             _filedir
+
+            return 0
+            ;;
+    esac
+
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $( compgen -W '-h -d -F -I -l --set --shortlist -V -a -A \
+            --abort-on-prompts -c -D -e -f -g --hide -H -i -k --keepalive --linewise \
+            -n --no-pty -p -P --port -r -R -s --show --skip-bad-hosts --ssh-config-path \
+            -t -u -w -x -z' -- "$cur" ) )
+    else
+        local tasks=$(fab --shortlist 2>/dev/null)
+
+        COMPREPLY=( $(compgen -W "${tasks}" -- ${cur}) )
+    fi
+
+    return 0
 }
 
-complete -F _lunchy -o default lunchy
+complete -F _fab fab
