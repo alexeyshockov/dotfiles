@@ -2,8 +2,25 @@
 
 # ~/.osx — http://mths.be/osx
 
+echo `sysctl -n hw.model` `sysctl -n machdep.cpu.brand_string`
+echo "Setting up preferences..."
+
 # Ask for the administrator password upfront.
 sudo -v
+
+# http://osxdaily.com/2012/10/24/set-the-hostname-computer-name-and-bonjour-name-separately-in-os-x/
+sudo scutil --set ComputerName "Alexey's MacBook Pro (i7-4770HQ)"
+sudo scutil --set HostName "alexeyshockov-mbp15i74770hq"
+sudo scutil --set LocalHostName "alexeyshockov-mbp15i74770hq"
+
+# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+sudo systemsetup -settimezone "Europe/Moscow" > /dev/null
+
+#
+# Main menu
+#
+
+defaults write com.apple.menuextra.battery ShowPercent -bool true
 
 #
 # Dock
@@ -11,3 +28,100 @@ sudo -v
 
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock magnification -bool true
+
+#
+# Keyboard
+#
+
+defaults write -g com.apple.keyboard.fnState -boolean true
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+#
+# Security
+#
+
+# http://apple.stackexchange.com/questions/75390/can-gatekeeper-be-disabled-via-terminal-in-os-x-10-8-mountain-lion
+sudo spctl --master-disable
+
+#
+# Spootlight
+#
+
+# Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+# Helpful command for current value:
+#    clear && defaults read com.apple.spotlight orderedItems | tr '\n' ' ' | tr -s ' ' ' ' | gsed -e "s/}, /}' \\\\\n    '/g"
+defaults write com.apple.spotlight orderedItems -array \
+    '{ enabled = 1; name = APPLICATIONS; }' \
+    '{ enabled = 1; name = "MENU_SPOTLIGHT_SUGGESTIONS"; }' \
+    '{ enabled = 0; name = "MENU_CONVERSION"; }' \
+    '{ enabled = 1; name = "MENU_EXPRESSION"; }' \
+    '{ enabled = 0; name = "MENU_DEFINITION"; }' \
+    '{ enabled = 1; name = "SYSTEM_PREFS"; }' \
+    '{ enabled = 0; name = DOCUMENTS; }' \
+    '{ enabled = 0; name = DIRECTORIES; }' \
+    '{ enabled = 0; name = PRESENTATIONS; }' \
+    '{ enabled = 0; name = SPREADSHEETS; }' \
+    '{ enabled = 0; name = PDF; }' \
+    '{ enabled = 0; name = MESSAGES; }' \
+    '{ enabled = 1; name = CONTACT; }' \
+    '{ enabled = 1; name = "EVENT_TODO"; }' \
+    '{ enabled = 0; name = IMAGES; }' \
+    '{ enabled = 0; name = BOOKMARKS; }' \
+    '{ enabled = 0; name = MUSIC; }' \
+    '{ enabled = 0; name = MOVIES; }' \
+    '{ enabled = 0; name = FONTS; }' \
+    '{ enabled = 0; name = "MENU_OTHER"; }' \
+    '{ enabled = 0; name = "MENU_WEBSEARCH"; }' \
+    '{ enabled = 0; name = SOURCE; }'
+defaults write com.apple.spotlight version -int 7
+
+# Load new settings before rebuilding the index
+sudo killall mds
+sleep 5;
+
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
+
+#
+# Activity Monitor
+#
+
+# Visualize CPU usage in the Activity Monitor Dock icon.
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+#
+# Safari
+#
+
+# Enable Safari’s debug menu.
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Enable the Develop menu and the Web Inspector in Safari.
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+#
+# SSD tweaks
+#
+
+# Disable local Time Machine snapshots.
+sudo tmutil disablelocal
+# Disable the sudden motion sensor as it’s not useful for SSDs.
+sudo pmset -a sms 0
+
+
+
+# Flush caches.
+killall -u $(whoami) cfprefsd
+
+# Restart programms.
+for app in "cfprefsd" "Dock" "Finder" "SystemUIServer"; do
+	sudo killall "${app}"
+done
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."

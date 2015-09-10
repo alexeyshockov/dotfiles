@@ -1,5 +1,4 @@
 fabric
-pelican
 Markdown
+Pygments
 typogrify
-ghp-import

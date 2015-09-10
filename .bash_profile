@@ -11,6 +11,7 @@ export LC_NUMERIC="C"
 export LC_TIME="C"
 
 export EDITOR="nano"
+export PAGER="less"
 
 # Better command prompt.
 source ~/liquidprompt/liquidprompt
@@ -85,4 +86,8 @@ function skip {
 # Generate random string with given length. 32 by default.
 function rand {
   cat /dev/urandom | gtr -dc 'A-HJ-NP-Za-km-z2-9' | fold -w ${1:-32} | head -n 1
+}
+
+function timestamp {
+  date '+%s'
 }
