@@ -1,5 +1,10 @@
 {
     "require": {
-        "psy/psysh": "@stable"
+        "psy/psysh": "@stable",
+        "lstrojny/functional-php": "@dev",
+        "phpoption/phpoption": "@stable",
+        "nesbot/carbon": "@stable",
+        "danielstjules/stringy": "@stable",
+        "squizlabs/php_codesniffer": "@stable"
     }
 }

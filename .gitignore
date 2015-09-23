@@ -3,6 +3,7 @@
 /Documents
 /Downloads
 /Dropbox
+/Creative Cloud Files
 /Google Drive
 /Library
 /Movies
@@ -26,5 +27,8 @@ tmp
 
 /.netrc
 /.pgpass
+
+# GitHub authentication token.
+/.config/hub
 
 /.*

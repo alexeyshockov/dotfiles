@@ -17,6 +17,12 @@ sudo scutil --set LocalHostName "alexeyshockov-mbp15i74770hq"
 sudo systemsetup -settimezone "Europe/Moscow" > /dev/null
 
 #
+# Utils
+#
+
+# TODO Change hotkey in CopyLess from Option+Command+C to Control+Command+C.
+
+#
 # Main menu
 #
 
@@ -99,6 +105,12 @@ defaults write com.apple.ActivityMonitor IconType -int 5
 
 # Enable Safari’s debug menu.
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Make Safari’s search banners default to Contains instead of Starts With.
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Disable Safari’s thumbnail cache for History and Top Sites
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Enable the Develop menu and the Web Inspector in Safari.
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
