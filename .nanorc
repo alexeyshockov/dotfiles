@@ -3,5 +3,7 @@ set regexp
 set smooth
 set tabsize 4
 
+include /usr/local/share/nano/*.nanorc
+
 bind M-F nextword all
 bind M-B prevword all

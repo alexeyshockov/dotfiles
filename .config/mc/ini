@@ -82,6 +82,8 @@ mcview_eof=
 ignore_ftp_chattr_errors=true
 skin=default
 
+editor_state_full_filename=0
+
 [Layout]
 message_visible=1
 keybar_visible=1

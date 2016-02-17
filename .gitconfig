@@ -83,3 +83,5 @@
 
 [difftool "icdiff"]
     cmd = /usr/local/bin/icdiff $LOCAL $REMOTE
+[rebase]
+	autostash = true

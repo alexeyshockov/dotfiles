@@ -8,4 +8,7 @@ if (is_file($currentProjectComposerAutoloader)) {
 
 return [
     'defaultIncludes' => $localLoaders,
+    'commands' => [
+        new \Psy\Command\ParseCommand(),
+    ],
 ];
