@@ -137,3 +137,7 @@ for app in "cfprefsd" "Dock" "Finder" "SystemUIServer"; do
 done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+echo
+echo "TODO by hands: turn off shortcuts for 'Move left a space' and 'Move right a space'!"
+echo
