@@ -4,3 +4,4 @@ Pygments
 typogrify
 psycopg2
 ipython[notebook]
+mitmproxy

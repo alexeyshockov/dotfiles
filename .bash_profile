@@ -68,6 +68,13 @@ alias local-ip="ipconfig getifaddr en0"
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
+# Z — smart cd.
+. `brew --prefix`/etc/profile.d/z.sh
+
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
+
+
+
 ##
 # My own commands.
 ##
@@ -91,5 +98,3 @@ function rand {
 function timestamp {
   date '+%s'
 }
-
-test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
