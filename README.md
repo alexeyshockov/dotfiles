@@ -46,3 +46,7 @@ Add nginx to startup:
 $ cp ~/homebrew.mxcl.nginx.plist /Library/LaunchDaemons
 $ sudo chown root:root /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 ```
+
+## Caps Lock remap
+
+Use Sail to remap `Caps Lock` button: http://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x
