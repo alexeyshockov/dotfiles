@@ -29,6 +29,13 @@ sudo systemsetup -settimezone "Europe/Moscow" > /dev/null
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
 #
+# Spaces
+#
+
+# Don’t automatically rearrange Spaces based on most recent use.
+defaults write com.apple.dock mru-spaces -bool false
+
+#
 # Dock
 #
 

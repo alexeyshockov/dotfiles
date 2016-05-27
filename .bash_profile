@@ -13,6 +13,9 @@ export LC_TIME="C"
 export EDITOR="nano"
 export PAGER="less"
 
+# GitHub token for Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="0c572144910ae7b2ae6dda3ec4fc228b03506673"
+
 # Better command prompt.
 source ~/liquidprompt/liquidprompt
 
@@ -45,11 +48,8 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export CLICOLOR="1"
 export LSCOLORS="GxFxCxDxBxegedabagaced"
 
-# Z - Clever cd.
-. `brew --prefix`/etc/profile.d/z.sh
-
-# Symfony 2 autocompletion for console commands.
-. ~/symfony2-autocomplete/symfony2-autocomplete.bash
+# Symfony console autocomplete...
+eval "$(symfony-autocomplete)"
 
 # Aliases.
 alias gnetstat="sudo lsof -i -nP"
@@ -68,8 +68,7 @@ alias local-ip="ipconfig getifaddr en0"
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
-# Z — smart cd.
-. `brew --prefix`/etc/profile.d/z.sh
+eval "$(fasd --init auto)"
 
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
