@@ -14,7 +14,7 @@ sudo scutil --set HostName "alexeyshockov-mbp15i74770hq"
 sudo scutil --set LocalHostName "alexeyshockov-mbp15i74770hq"
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Moscow" > /dev/null
+sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
 
 #
 # Utils
