@@ -19,6 +19,7 @@
         "lstrojny/functional-php": "~1.2@dev",
         "phpoption/phpoption": "~1.5",
         "nesbot/carbon": "~1.20",
-        "danielstjules/stringy": "~2.1"
+        "danielstjules/stringy": "~2.1",
+        "guzzlehttp/guzzle": "~6.2"
     }
 }
