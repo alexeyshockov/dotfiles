@@ -5,3 +5,5 @@ typogrify
 psycopg2
 ipython[notebook]
 mitmproxy
+gsutil
+crash
