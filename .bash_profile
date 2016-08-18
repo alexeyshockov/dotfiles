@@ -41,8 +41,6 @@ PATH=$PATH:$GOPATH/bin
 
 export PATH
 
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 export CLICOLOR="1"
