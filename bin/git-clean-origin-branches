@@ -9,4 +9,4 @@ git fetch
 
 git remote prune $BASE
 
-git branch -r --merged $BASE/master | grep $BASE | grep -v '$BASE/master' | xargs -L1 | awk '{split($0,a,"/"); print a[2]}' | xargs -P 5 -n 1 -t git push origin --delete
+git branch -r --merged $BASE/master | grep $BASE | grep -v "$BASE/master" | xargs -L1 | awk '{split($0,a,"/"); print a[2]}' | xargs -P 5 -n 1 -t git push origin --delete
