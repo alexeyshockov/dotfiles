@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem 'cocoapods'
-gem 'lunchy'
+# brew tap homebrew/services - now it's included in Homebrew.
+#gem 'lunchy'
 gem 'lolcat'
 
 gem 'jekyll'

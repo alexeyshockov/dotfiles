@@ -7,3 +7,4 @@ ipython[notebook]
 mitmproxy
 gsutil
 crash
+supervisor

@@ -8,13 +8,11 @@
     "require": {
         "psy/psysh": "@stable",
         "squizlabs/php_codesniffer": "@stable",
-        "fabpot/php-cs-fixer": "@stable",
-        "halleck45/phpmetrics": "@stable",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "phpmetrics/phpmetrics": "@stable",
         "pyrech/composer-changelogs": "@stable",
         "kherge/box": "@stable",
         "bamarni/symfony-console-autocomplete": "@stable",
-
-        "productsup/bin-skeleton": "dev-composer-binary",
 
         "lstrojny/functional-php": "~1.2@dev",
         "phpoption/phpoption": "~1.5",
