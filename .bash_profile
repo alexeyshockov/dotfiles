@@ -10,7 +10,7 @@ export LC_MONETARY="C"
 export LC_NUMERIC="C"
 export LC_TIME="C"
 
-export EDITOR="nano"
+export EDITOR="vim"
 export PAGER="less"
 
 # GitHub token for Homebrew
@@ -21,11 +21,6 @@ source ~/liquidprompt/liquidprompt
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
-fi
-
-LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
-if [ -f $LUNCHY_DIR/lunchy-completion.bash ]; then
-  . $LUNCHY_DIR/lunchy-completion.bash
 fi
 
 export GOPATH=$HOME/go
