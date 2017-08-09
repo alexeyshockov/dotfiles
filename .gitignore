@@ -33,5 +33,6 @@ tmp
 
 # GitHub authentication token.
 /.config/hub
+/.composer/config.json
 
 /.*

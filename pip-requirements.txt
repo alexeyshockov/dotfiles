@@ -1,3 +1,4 @@
+ptpython
 fabric
 Markdown
 Pygments
@@ -8,3 +9,5 @@ mitmproxy
 gsutil
 crash
 supervisor
+ansible
+docker-py

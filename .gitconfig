@@ -59,8 +59,10 @@
 	# What will be sent?
 	out = "log @{u}.."
 
-	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
 	# Command clean-origin-branches is in ~/bin/git-clean-origin-branches file.
+	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
+	please = push --force-with-lease
+	ca = commit --amend --no-edit
 
 [hub]
 	protocol = https

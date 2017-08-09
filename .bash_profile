@@ -45,6 +45,7 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 eval "$(symfony-autocomplete)"
 
 # Aliases.
+alias json_pp='python -m json.tool'
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll="ls -alFh"
@@ -70,6 +71,11 @@ test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_i
 ##
 # My own commands.
 ##
+
+function httpless {
+    # `httpless example.org'
+    http --pretty=all --print=hb "$@" | less -R;
+}
 
 # From https://developer.atlassian.com/blog/2015/02/ten-tips-for-wonderful-bash-productivity/
 function col {
