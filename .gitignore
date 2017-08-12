@@ -30,6 +30,7 @@ tmp
 
 /.netrc
 /.pgpass
+/pgadmin.log
 
 # GitHub authentication token.
 /.config/hub
