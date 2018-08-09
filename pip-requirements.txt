@@ -1,13 +1,12 @@
 ptpython
-fabric
 Markdown
 Pygments
 typogrify
 psycopg2
-ipython[notebook]
 mitmproxy
 gsutil
 crash
 supervisor
-ansible
 docker-py
+gping
+

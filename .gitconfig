@@ -1,5 +1,5 @@
 [user]
-	name = Alexey Shockov
+	name = Alexey Shokov
 	email = alexey@shockov.com
 
 [color]
@@ -7,9 +7,9 @@
 
 [core]
 	autocrlf = input
-	editor = nano
+	editor = vim
 	whitespace = trailing-space, space-before-tab
-	
+
 	# excludesfile is default to $HOME/.config/git/ignore.
 
 [clean]
