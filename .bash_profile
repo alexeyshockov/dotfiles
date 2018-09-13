@@ -97,3 +97,4 @@ function rand {
 function timestamp {
   date '+%s'
 }
+export GPG_TTY=$(tty)

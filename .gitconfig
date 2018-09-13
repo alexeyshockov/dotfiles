@@ -1,6 +1,7 @@
 [user]
 	name = Alexey Shokov
 	email = alexey@shockov.com
+	signingkey = B068234E64AA1A9C
 
 [color]
 	ui = true
@@ -88,3 +89,5 @@
     cmd = /usr/local/bin/icdiff $LOCAL $REMOTE
 [rebase]
 	autostash = true
+[commit]
+	gpgsign = true
