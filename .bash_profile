@@ -17,7 +17,8 @@ export PAGER="less"
 export HOMEBREW_GITHUB_API_TOKEN="0c572144910ae7b2ae6dda3ec4fc228b03506673"
 
 # Better command prompt.
-source ~/liquidprompt/liquidprompt
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion

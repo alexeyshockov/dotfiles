@@ -33,8 +33,10 @@ tmp
 /.pgpass
 /pgadmin.log
 
+/.*
+!/.config/
+
 # GitHub authentication token.
 /.config/hub
 /.composer/config.json
 
-/.*
