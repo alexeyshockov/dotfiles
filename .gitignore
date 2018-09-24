@@ -40,3 +40,5 @@ tmp
 /.config/hub
 /.composer/config.json
 
+battery_status.csv
+
