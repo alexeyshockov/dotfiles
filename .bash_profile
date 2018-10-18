@@ -14,7 +14,7 @@ export EDITOR="vim"
 export PAGER="less"
 
 # GitHub token for Homebrew
-export HOMEBREW_GITHUB_API_TOKEN="0c572144910ae7b2ae6dda3ec4fc228b03506673"
+source ~/.bash_secrets
 
 # Better command prompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp

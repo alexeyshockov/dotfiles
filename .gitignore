@@ -34,7 +34,9 @@ tmp
 /pgadmin.log
 
 /.*
-!/.config/
+!/.config
+/.config/karabiner/automatic_backups
+/.config/psysh
 
 # GitHub authentication token.
 /.config/hub
