@@ -91,3 +91,5 @@
 	autostash = true
 [commit]
 	gpgsign = true
+[tag]
+	forceSignAnnotated = true
