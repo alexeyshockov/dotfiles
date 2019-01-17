@@ -5,7 +5,7 @@
         "friendsofphp/php-cs-fixer": "@stable",
         "phpmetrics/phpmetrics": "@stable",
         "pyrech/composer-changelogs": "@stable",
-        "kherge/box": "@stable",
+        "humbug/box": "@stable",
         "bamarni/symfony-console-autocomplete": "@stable",
 
         "lstrojny/functional-php": "~1.2@dev",
