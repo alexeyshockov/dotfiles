@@ -6,13 +6,14 @@
         "phpmetrics/phpmetrics": "@stable",
         "pyrech/composer-changelogs": "@stable",
         "humbug/box": "@stable",
+        "phpstan/phpstan": "@stable",
         "bamarni/symfony-console-autocomplete": "@stable",
 
-        "lstrojny/functional-php": "~1.2@dev",
+        "lstrojny/functional-php": "~1.4",
         "phpoption/phpoption": "~1.5",
-        "nesbot/carbon": "~1.20",
-        "danielstjules/stringy": "~2.1",
-        "guzzlehttp/guzzle": "~6.2",
+        "nesbot/carbon": "~2.0",
+        "danielstjules/stringy": "~3.0",
+        "guzzlehttp/guzzle": "~6.3",
         "fabpot/goutte": "@stable",
         "hirak/prestissimo": "^0.3.7"
     }
