@@ -4,9 +4,9 @@
         "squizlabs/php_codesniffer": "@stable",
         "friendsofphp/php-cs-fixer": "@stable",
         "phpmetrics/phpmetrics": "@stable",
-        "pyrech/composer-changelogs": "@stable",
         "humbug/box": "@stable",
         "phpstan/phpstan": "@stable",
+        "vimeo/psalm": "@stable",
         "bamarni/symfony-console-autocomplete": "@stable",
 
         "lstrojny/functional-php": "~1.4",
@@ -15,6 +15,10 @@
         "danielstjules/stringy": "~3.0",
         "guzzlehttp/guzzle": "~6.3",
         "fabpot/goutte": "@stable",
-        "hirak/prestissimo": "^0.3.7"
+
+        "pyrech/composer-changelogs": "@stable",
+        "hirak/prestissimo": "^0.3.7",
+        "localheinz/composer-normalize": "^1.1"
     }
 }
+

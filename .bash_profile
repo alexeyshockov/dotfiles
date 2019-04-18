@@ -47,7 +47,8 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 eval "$(symfony-autocomplete)"
 
 # Aliases.
-alias json_pp='python -m json.tool'
+alias cat="bat"
+alias json_pp="python -m json.tool"
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll="ls -alFh"
@@ -60,6 +61,9 @@ alias g="git"
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Local IP address.
 alias local-ip="ipconfig getifaddr en0"
+
+alias docker-cleanup-containers='docker rm $(docker ps -a -q)'
+alias docker-cleanup-images='docker rmi $(docker images -q)'
 
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
