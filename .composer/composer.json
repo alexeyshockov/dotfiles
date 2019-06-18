@@ -18,7 +18,7 @@
 
         "pyrech/composer-changelogs": "@stable",
         "hirak/prestissimo": "^0.3.7",
-        "localheinz/composer-normalize": "^1.1"
+        "localheinz/composer-normalize": "^1.1",
+        "sllh/composer-versions-check": "^2.0"
     }
 }
-
