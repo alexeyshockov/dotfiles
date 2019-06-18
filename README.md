@@ -37,16 +37,10 @@ $ bundle install
 
 Install Python programms:
 ```
-$ pip install --upgrade pip
-$ pip install -r pip-requirements.txt
-```
-
-Add nginx to startup:
-```
-$ cp ~/homebrew.mxcl.nginx.plist /Library/LaunchDaemons
-$ sudo chown root:root /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+$ pip3 install --upgrade pip
+$ pip3 install -r pip-requirements.txt
 ```
 
 ## Caps Lock remap
 
-Use Sail to remap `Caps Lock` button: http://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x
+Use tekezo/Karabiner-Elements to remap `Caps Lock` button: http://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x
