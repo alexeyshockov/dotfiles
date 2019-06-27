@@ -2,11 +2,13 @@ ptpython
 Markdown
 Pygments
 typogrify
-psycopg2
+# PostgreSQL driver
+#psycopg2
 mitmproxy
 gsutil
-crash
 supervisor
 docker-py
-gping
+oauth2client
+gspread
+pandas
 

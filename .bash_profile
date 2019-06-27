@@ -49,6 +49,8 @@ eval "$(symfony-autocomplete)"
 # Aliases.
 alias cat="bat"
 alias json_pp="python -m json.tool"
+alias norg="gron --ungron"
+alias ungron="gron --ungron"
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias ll="ls -alFh"
