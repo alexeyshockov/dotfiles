@@ -28,6 +28,7 @@ export GOPATH=$HOME/go
 
 PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="/usr/local/share/npm/bin:$PATH"
+PATH="/usr/local/opt/ruby/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
