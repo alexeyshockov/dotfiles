@@ -70,6 +70,11 @@ alias docker-cleanup-images='docker rmi $(docker images -q)'
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
+# For Docker builds
+export COMPOSER_AUTH="$(cat ~/.composer/auth.json)"
+
+export GPG_TTY=$(tty)
+
 eval "$(fasd --init auto)"
 
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
@@ -104,4 +109,3 @@ function rand {
 function timestamp {
   date '+%s'
 }
-export GPG_TTY=$(tty)
