@@ -72,7 +72,10 @@ alias docker-cleanup-images='docker rmi $(docker images -q)'
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 # For Docker builds
-export COMPOSER_AUTH="$(cat ~/.composer/auth.json)"
+COMPOSER_AUTH_FILE=~/.composer/auth.json
+if [ -f "$COMPOSER_AUTH_FILE" ]; then
+    export COMPOSER_AUTH="$(cat $COMPOSER_AUTH_FILE)"
+fi
 
 export GPG_TTY=$(tty)
 
