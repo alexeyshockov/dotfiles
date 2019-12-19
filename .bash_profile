@@ -25,6 +25,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 export GOPATH=$HOME/go
+export GOSUMDB=off
 
 PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="/usr/local/share/npm/bin:$PATH"

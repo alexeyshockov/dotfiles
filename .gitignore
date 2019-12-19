@@ -42,5 +42,7 @@ tmp
 /.config/hub
 /.composer/config.json
 
+/go
+
 battery_status.csv
 
