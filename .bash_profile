@@ -66,7 +66,7 @@ alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Local IP address.
 alias local-ip="ipconfig getifaddr en0"
 
-alias docker-cleanup-containers='docker rm $(docker ps -a -q)'
+alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'
 alias docker-cleanup-images='docker rmi $(docker images -q)'
 
 # Maven options (useful for mvn camel:run).
