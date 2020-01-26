@@ -46,6 +46,9 @@ export JAVA_HOME=`/usr/libexec/java_home`
 export CLICOLOR="1"
 export LSCOLORS="GxFxCxDxBxegedabagaced"
 
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
 # Symfony console autocomplete...
 eval "$(symfony-autocomplete)"
 
