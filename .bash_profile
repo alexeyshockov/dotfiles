@@ -16,28 +16,32 @@ export PAGER="less"
 # GitHub token for Homebrew
 source ~/.bash_secrets
 
+BREW_PREFIX=$(brew --prefix)
+
 # Better command prompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f $BREW_PREFIX/etc/bash_completion ]; then
+  . $BREW_PREFIX/etc/bash_completion
 fi
 
 export GOPATH=$HOME/go
 export GOSUMDB=off
 
-PATH="/usr/local/opt/curl/bin:$PATH"
-PATH="/usr/local/share/npm/bin:$PATH"
-PATH="/usr/local/opt/ruby/bin:$PATH"
-PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
+PATH="$BREW_PREFIX/share/npm/bin:$PATH"
+PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
+PATH="$BREW_PREFIX/opt/make/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 # For Go Homebrew package.
-PATH=$PATH:/usr/local/opt/go/libexec/bin
+PATH=$PATH:$BREW_PREFIX/opt/go/libexec/bin
 PATH=$PATH:$GOPATH/bin
+
+PATH="$BREW_PREFIX/opt/python@3.8/bin:$PATH"
 
 export PATH
 
@@ -97,6 +101,11 @@ test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_i
 function httpless {
     # `httpless example.org'
     http --pretty=all --print=hb "$@" | less -R;
+}
+
+# https://www.stefaanlippens.net/pretty-csv.html
+function pretty_csv {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
 }
 
 # From https://developer.atlassian.com/blog/2015/02/ten-tips-for-wonderful-bash-productivity/
