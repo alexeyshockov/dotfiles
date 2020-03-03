@@ -53,6 +53,8 @@ export LSCOLORS="GxFxCxDxBxegedabagaced"
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
+export PHP_CS_FIXER_FUTURE_MODE=1
+
 # Symfony console autocomplete...
 eval "$(symfony-autocomplete)"
 
@@ -75,7 +77,7 @@ alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias local-ip="ipconfig getifaddr en0"
 
 alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'
-alias docker-cleanup-images='docker rmi $(docker images -q)'
+alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"

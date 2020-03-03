@@ -3,6 +3,7 @@
         "psy/psysh": "@stable",
         "squizlabs/php_codesniffer": "@stable",
         "friendsofphp/php-cs-fixer": "@stable",
+        "rector/rector": "@stable",
         "phpmetrics/phpmetrics": "@stable",
         "humbug/box": "@stable",
         "phpstan/phpstan": "@stable",
@@ -10,7 +11,7 @@
         "bamarni/symfony-console-autocomplete": "@stable",
 
         "nesbot/carbon": "~2.0",
-        "guzzlehttp/guzzle": "~6.3",
+        "guzzlehttp/guzzle": "~6.3 || 7.0@beta",
         "fabpot/goutte": "@stable",
 
         "pyrech/composer-changelogs": "@stable",
