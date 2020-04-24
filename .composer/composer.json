@@ -5,19 +5,22 @@
         "friendsofphp/php-cs-fixer": "@stable",
         "rector/rector": "@stable",
         "phpmetrics/phpmetrics": "@stable",
-        "humbug/box": "@stable",
         "phpstan/phpstan": "@stable",
+
         "vimeo/psalm": "@stable",
+        "alexeyshockov/guzzle-psalm-plugin": "@dev",
+        "weirdan/doctrine-psalm-plugin": "@dev",
+
         "bamarni/symfony-console-autocomplete": "@stable",
 
-        "nesbot/carbon": "~2.0",
+        "nesbot/carbon": "^2.0",
         "guzzlehttp/guzzle": "~6.3 || 7.0@beta",
         "fabpot/goutte": "@stable",
 
         "pyrech/composer-changelogs": "@stable",
         "hirak/prestissimo": "^0.3.7",
-        "localheinz/composer-normalize": "^1.1",
-        "sllh/composer-versions-check": "^2.0"
+        "localheinz/composer-normalize": "@stable",
+        "sllh/composer-versions-check": "^2.0",
+        "davidrjonas/composer-lock-diff": "^1.0@beta"
     }
 }
-

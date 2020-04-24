@@ -2,7 +2,7 @@ unset PROMPT_COMMAND
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-# All variables below may be setted by LC_ALL.
+# All variables below may be set by LC_ALL.
 export LC_COLLATE="C"
 export LC_CTYPE="UTF-8"
 export LC_MESSAGES="C"
@@ -16,32 +16,36 @@ export PAGER="less"
 # GitHub token for Homebrew
 source ~/.bash_secrets
 
-BREW_PREFIX=$(brew --prefix)
-
 # Better command prompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
-if [ -f $BREW_PREFIX/etc/bash_completion ]; then
-  . $BREW_PREFIX/etc/bash_completion
+# See https://docs.brew.sh/Shell-Completion
+HOMEBREW_PREFIX="$(brew --prefix)"
+if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+  source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+else
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+    [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+  done
 fi
 
 export GOPATH=$HOME/go
 export GOSUMDB=off
 
-PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
-PATH="$BREW_PREFIX/share/npm/bin:$PATH"
-PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
-PATH="$BREW_PREFIX/opt/make/libexec/gnubin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/share/npm/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 # For Go Homebrew package.
-PATH=$PATH:$BREW_PREFIX/opt/go/libexec/bin
+PATH=$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin
 PATH=$PATH:$GOPATH/bin
 
-PATH="$BREW_PREFIX/opt/python@3.8/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH"
 
 export PATH
 
@@ -89,6 +93,8 @@ if [ -f "$COMPOSER_AUTH_FILE" ]; then
 fi
 
 export GPG_TTY=$(tty)
+
+source <(navi widget bash)
 
 eval "$(fasd --init auto)"
 

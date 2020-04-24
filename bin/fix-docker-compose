@@ -4,4 +4,6 @@ set -ex
 
 docker-compose --version
 brew unlink  docker-compose && brew link --overwrite docker-compose
+brew link --overwrite kubernetes-cli
 docker-compose --version
+kubectl version
