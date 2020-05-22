@@ -45,6 +45,8 @@ PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
 PATH=$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin
 PATH=$PATH:$GOPATH/bin
 
+PATH="$HOMEBREW_PREFIX/opt/openjdk/bin:$PATH"
+
 PATH="$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH"
 
 export PATH
