@@ -37,6 +37,7 @@ tmp
 !/.config
 /.config/karabiner/automatic_backups
 /.config/psysh
+/.config/gh
 
 # GitHub authentication token.
 /.config/hub
