@@ -18,7 +18,8 @@ source ~/.bash_secrets
 
 # Better command prompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+#[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+[[ $- = *i* ]] && eval "$(starship init bash)"
 
 # See https://docs.brew.sh/Shell-Completion
 HOMEBREW_PREFIX="$(brew --prefix)"
@@ -107,6 +108,10 @@ test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_i
 ##
 # My own commands.
 ##
+
+function mkcdir {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
 
 function httpless {
     # `httpless example.org'
