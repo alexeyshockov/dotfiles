@@ -7,6 +7,8 @@
         "phpmetrics/phpmetrics": "@stable",
         "phpstan/phpstan": "@stable",
 
+        "phan/phan": "@stable",
+
         "vimeo/psalm": "@stable",
         "alexeyshockov/guzzle-psalm-plugin": "@dev",
         "weirdan/doctrine-psalm-plugin": "@dev",

@@ -6,9 +6,10 @@ typogrify
 #psycopg2
 mitmproxy
 gsutil
-supervisor
 docker-py
 oauth2client
 gspread
 pandas
+PyYAML
+pyinfra
 

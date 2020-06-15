@@ -1,40 +1,39 @@
-[includeIf "gitdir:"]
-	path = .gitconfig-general
-[includeIf "gitdir:dev/pf/"]
-	path = .gitconfig-pf
-
+[user]
+        name = Alexey Shokov
+        email = alexey@shockov.com
+        signingkey = B068234E64AA1A9C
+[include]
+	# Local overrides (work, etc.)
+	path = ~/.gitconfig.local
 [color]
 	ui = true
-
 [core]
 	autocrlf = input
 	editor = vim
 	whitespace = trailing-space, space-before-tab
 	pager = diff-so-fancy | less --tabs=4 -RFX
-
 	# excludesfile is default to $HOME/.config/git/ignore.
-
+[commit]
+	verbose = true
+[credential]
+	helper = osxkeychain
+[fetch]
+	prune = true
 [clean]
 	requireForce = true
-
 [branch]
-	autosetuprebase = always
-
+	autoSetupRebase = always
 [help]
-	autocorrect = 1
-
+	autoCorrect = 10
 [apply]
 	whitespace = fix
-
 [github]
 	user = alexeyshockov
-
 [sendemail]
 	smtpserver = smtp.gmail.com
 	smtpuser = alexey@shockov.com
 	smtpserverport = 587
 	smtpencryption = tls
-
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 	st = status -sb
@@ -65,32 +64,31 @@
 	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
 	please = push --force-with-lease
 	ca = commit --amend --no-edit
-
 [hub]
 	protocol = https
-
 [rerere]
 	enabled = true
-
 [push]
 	default = simple
-
+[log]
+	follow = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-
 [diff]
-    tool = icdiff
-
+	tool = icdiff
 [difftool]
 	prompt = false
-
 [difftool "icdiff"]
-    cmd = /usr/local/bin/icdiff $LOCAL $REMOTE
+	cmd = /usr/local/bin/icdiff $LOCAL $REMOTE
 [rebase]
-	autostash = true
+	autoSquash = true
+	autoStash = true
+[stash]
+	showPatch = true
 [commit]
 	gpgsign = true
 [tag]
 	forceSignAnnotated = true
+
