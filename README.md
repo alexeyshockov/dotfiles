@@ -1,8 +1,10 @@
-# My OS X Settings
+# My Mac OS Settings
 
-## On Fresh System
+To get familiar with the concept, read [this introduction from GitHub](https://dotfiles.github.io). There are many `dotfiles` repos out there, but the most popular and inspiring one is probably [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
-Clone repository first :)
+## On a Fresh System
+
+Clone the repository first :)
 
 ```
 $ cd /tmp
