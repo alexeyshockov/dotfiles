@@ -76,6 +76,12 @@ sudo killall mds
 #sudo mdutil -E / > /dev/null
 
 #
+# Display
+#
+# TODO TrueTone — off
+# TODO Night Shift — Sunset to Sunrise (sudo defaults find Night Shift)
+
+#
 # Activity Monitor
 #
 
