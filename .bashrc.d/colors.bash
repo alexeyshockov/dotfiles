@@ -174,8 +174,6 @@ show_base16() {
 }
 
 # Enable colors in various command-line tools
-export GREP_COLOR="1;32"
-export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1
 
 # Try to determine whether the 'ls' command on

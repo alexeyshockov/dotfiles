@@ -9,24 +9,15 @@ echo "Setting up preferences..."
 sudo -v
 
 # http://osxdaily.com/2012/10/24/set-the-hostname-computer-name-and-bonjour-name-separately-in-os-x/
-sudo scutil --set ComputerName "Alexey's MacBook Pro (i7-4770HQ)"
-sudo scutil --set HostName "alexeyshockov-mbp15i74770hq"
-sudo scutil --set LocalHostName "alexeyshockov-mbp15i74770hq"
-
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
+#sudo scutil --set ComputerName "Alexey's MacBook Pro (i7-4770HQ)"
+#sudo scutil --set HostName "alexeyshockov-mbp15i74770hq"
+#sudo scutil --set LocalHostName "alexeyshockov-mbp15i74770hq"
 
 #
-# Utils
+# CopyLess2
 #
 
-# TODO Change hotkey in CopyLess from Option+Command+C to Control+Command+C.
-
-#
-# Main menu
-#
-
-defaults write com.apple.menuextra.battery ShowPercent -bool true
+# TODO Change hotkey from Option+Command+C to Control+Command+C
 
 #
 # Spaces
@@ -34,6 +25,12 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use.
 defaults write com.apple.dock mru-spaces -bool false
+
+#
+# Menu Bar
+#
+
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 #
 # Dock
@@ -46,58 +43,37 @@ defaults write com.apple.dock magnification -bool true
 # Keyboard
 #
 
-defaults write -g com.apple.keyboard.fnState -boolean true
-defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+#defaults write -g com.apple.keyboard.fnState -boolean true
+#defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 #
 # Security
 #
 
 # http://apple.stackexchange.com/questions/75390/can-gatekeeper-be-disabled-via-terminal-in-os-x-10-8-mountain-lion
-sudo spctl --master-disable
+#sudo spctl --master-disable
 
 #
 # Spootlight
 #
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# TODO
+#   > 2020-06-18 09:13:20.027 defaults[52110:269455] Could not write domain /.Spotlight-V100/VolumeConfiguration; exiting
+#   > disablelocal: Unrecognized verb.
+#sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # Helpful command for current value:
 #    clear && defaults read com.apple.spotlight orderedItems | tr '\n' ' ' | tr -s ' ' ' ' | gsed -e "s/}, /}' \\\\\n    '/g"
-defaults write com.apple.spotlight orderedItems -array \
-    '{ enabled = 1; name = APPLICATIONS; }' \
-    '{ enabled = 1; name = "MENU_SPOTLIGHT_SUGGESTIONS"; }' \
-    '{ enabled = 0; name = "MENU_CONVERSION"; }' \
-    '{ enabled = 1; name = "MENU_EXPRESSION"; }' \
-    '{ enabled = 0; name = "MENU_DEFINITION"; }' \
-    '{ enabled = 1; name = "SYSTEM_PREFS"; }' \
-    '{ enabled = 0; name = DOCUMENTS; }' \
-    '{ enabled = 0; name = DIRECTORIES; }' \
-    '{ enabled = 0; name = PRESENTATIONS; }' \
-    '{ enabled = 0; name = SPREADSHEETS; }' \
-    '{ enabled = 0; name = PDF; }' \
-    '{ enabled = 0; name = MESSAGES; }' \
-    '{ enabled = 1; name = CONTACT; }' \
-    '{ enabled = 1; name = "EVENT_TODO"; }' \
-    '{ enabled = 0; name = IMAGES; }' \
-    '{ enabled = 0; name = BOOKMARKS; }' \
-    '{ enabled = 0; name = MUSIC; }' \
-    '{ enabled = 0; name = MOVIES; }' \
-    '{ enabled = 0; name = FONTS; }' \
-    '{ enabled = 0; name = "MENU_OTHER"; }' \
-    '{ enabled = 0; name = "MENU_WEBSEARCH"; }' \
-    '{ enabled = 0; name = SOURCE; }'
-defaults write com.apple.spotlight version -int 7
 
 # Load new settings before rebuilding the index
 sudo killall mds
-sleep 5;
+#sleep 5;
 
 # Make sure indexing is enabled for the main volume
-sudo mdutil -i on / > /dev/null
+#sudo mdutil -i on / > /dev/null
 # Rebuild the index from scratch
-sudo mdutil -E / > /dev/null
+#sudo mdutil -E / > /dev/null
 
 #
 # Activity Monitor
@@ -111,18 +87,29 @@ defaults write com.apple.ActivityMonitor IconType -int 5
 #
 
 # Enable Safari’s debug menu.
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+#defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 # Make Safari’s search banners default to Contains instead of Starts With.
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 
 # Disable Safari’s thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+#defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Enable the Develop menu and the Web Inspector in Safari.
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+#defaults write com.apple.Safari IncludeDevelopMenu -bool true
+#defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+#
+# iTerm2
+#
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+#
+# GnuPG
+#
+chmod 700 .gnupg
 
 #
 # SSD tweaks
@@ -131,7 +118,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Disable local Time Machine snapshots.
 sudo tmutil disablelocal
 # Disable the sudden motion sensor as it’s not useful for SSDs.
-sudo pmset -a sms 0
+#sudo pmset -a sms 0
 
 
 
@@ -148,3 +135,4 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 echo
 echo "TODO by hands: turn off shortcuts for 'Move left a space' and 'Move right a space'!"
 echo
+

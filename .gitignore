@@ -33,11 +33,14 @@ tmp
 /.pgpass
 /pgadmin.log
 
+/bin
+
 /.*
 !/.config
 /.config/karabiner/automatic_backups
 /.config/psysh
 /.config/gh
+/.config/mc/ini
 
 # GitHub authentication token.
 /.config/hub

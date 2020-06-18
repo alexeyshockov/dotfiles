@@ -1,4 +1,3 @@
-set const
 set regexp
 set smooth
 set tabsize 4

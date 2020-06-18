@@ -12,7 +12,6 @@
 	editor = vim
 	whitespace = trailing-space, space-before-tab
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	# excludesfile is default to $HOME/.config/git/ignore.
 [commit]
 	verbose = true
 [credential]
@@ -34,36 +33,6 @@
 	smtpuser = alexey@shockov.com
 	smtpserverport = 587
 	smtpencryption = tls
-[alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
-	st = status -sb
-	s = status
-	v = log --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --abbrev-commit --date=short -1
-	a = "add -u"
-	c = commit
-	d = diff
-
-	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
-	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
-
-	ignored = ls-files --others -i --exclude-standard
-
-	up = "!(git stash > /dev/null && git pull) && git stash pop > /dev/null"
-	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
-	unstage = "reset HEAD --"
-
-	# Use case: git push origin master && git push upstream master
-	push-to-all = "!git push origin `git rev-parse --abbrev-ref HEAD` && git push upstream `git rev-parse --abbrev-ref HEAD`"
-
-	# What will be received?
-	in = "!git remote update -p; git log ..@{u}"
-	# What will be sent?
-	out = "log @{u}.."
-
-	# Command clean-origin-branches is in ~/bin/git-clean-origin-branches file.
-	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
-	please = push --force-with-lease
-	ca = commit --amend --no-edit
 [hub]
 	protocol = https
 [rerere]
@@ -91,4 +60,34 @@
 	gpgsign = true
 [tag]
 	forceSignAnnotated = true
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+	v = log --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --abbrev-commit --date=short -1
+	st = status -sb
+	s = status
+	a = add -u
+	c = commit
+	d = diff
+	dc = diff --cached
 
+	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
+	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
+
+	ignored = ls-files --others -i --exclude-standard
+
+	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
+	unstage = "reset HEAD --"
+
+	# Use case: git push origin master && git push upstream master
+	push-to-all = "!git push origin `git rev-parse --abbrev-ref HEAD` && git push upstream `git rev-parse --abbrev-ref HEAD`"
+
+	# What will be received?
+	in = "!git remote update -p; git log ..@{u}"
+	# What will be sent?
+	out = "log @{u}.."
+
+	# Command clean-origin-branches is in ~/bin/git-clean-origin-branches file
+	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
+
+	please = push --force-with-lease
+	ca = commit --amend --no-edit
