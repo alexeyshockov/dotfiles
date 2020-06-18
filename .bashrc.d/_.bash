@@ -10,8 +10,7 @@ export LC_MONETARY="C"
 export LC_NUMERIC="C"
 export LC_TIME="C"
 
-export EDITOR="vim"
-export PAGER="less"
+HOMEBREW_PREFIX="$(brew --prefix)"
 
 # GitHub token for Homebrew
 source ~/.bash_secrets
