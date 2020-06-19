@@ -1,0 +1,14 @@
+# See https://starship.rs/config/
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = -1
+
+[docker_context]
+disabled = false
+
+[kubernetes]
+disabled = false
+
