@@ -30,7 +30,7 @@ defaults write com.apple.dock mru-spaces -bool false
 # Menu Bar
 #
 
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 #
 # Dock
@@ -44,7 +44,7 @@ defaults write com.apple.dock magnification -bool true
 #
 
 #defaults write -g com.apple.keyboard.fnState -boolean true
-#defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 #
 # Security

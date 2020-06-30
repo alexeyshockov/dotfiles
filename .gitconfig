@@ -70,6 +70,8 @@
 	d = diff
 	dc = diff --cached
 
+	rs = restore --staged
+
 	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
 	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
 
