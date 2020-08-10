@@ -65,8 +65,9 @@ alias ll="ls -alFh"
 alias la="ls -lAht"
 alias grep="ggrep --color=always"
 alias find="gfind"
-alias git="hub"
 alias g="git"
+alias gs="g s"
+alias dc="docker-compose"
 # Public IP address.
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Local IP address.

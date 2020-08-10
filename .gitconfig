@@ -1,7 +1,7 @@
 [user]
-        name = Alexey Shokov
-        email = alexey@shockov.com
-        signingkey = B068234E64AA1A9C
+	name = Alexey Shokov
+	email = alexey@shockov.com
+	signingkey = B068234E64AA1A9C
 [include]
 	# Local overrides (work, etc.)
 	path = ~/.gitconfig.local
@@ -70,7 +70,10 @@
 	d = diff
 	dc = diff --cached
 
+	fa = fetch --all
+
 	rs = restore --staged
+	unstage = restore --staged
 
 	standup = "!git log --since yesterday --author `git config user.email` --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
 	overview = log --all --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
@@ -78,7 +81,6 @@
 	ignored = ls-files --others -i --exclude-standard
 
 	rewrite = "!sh -c 'git rebase -i HEAD~$1' -"
-	unstage = "reset HEAD --"
 
 	# Use case: git push origin master && git push upstream master
 	push-to-all = "!git push origin `git rev-parse --abbrev-ref HEAD` && git push upstream `git rev-parse --abbrev-ref HEAD`"
@@ -92,4 +94,4 @@
 	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
 
 	please = push --force-with-lease
-	ca = commit --amend --no-edit
+#	ca = commit --amend --no-edit
