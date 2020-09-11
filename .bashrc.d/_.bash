@@ -26,6 +26,8 @@ PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/gnu-units/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
