@@ -20,24 +20,24 @@ source ~/.bash_secrets
 #[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 [[ $- = *i* ]] && eval "$(starship init bash)"
 
-export GOPATH=$HOME/go
-export GOSUMDB=off
-
 PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/share/npm/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Add /usr/local/sbin to $PATH by replacing.
 PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
+PATH="$HOMEBREW_PREFIX/opt/openjdk/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH"
+
+export GOPATH=$HOME/go
+export GOSUMDB=off
 # For Go Homebrew package.
 PATH=$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin
 PATH=$PATH:$GOPATH/bin
-
-PATH="$HOMEBREW_PREFIX/opt/openjdk/bin:$PATH"
-
-PATH="$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH"
 
 export PATH
 

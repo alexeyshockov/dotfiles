@@ -4,6 +4,7 @@
 
 .local
 .cache
+.php_cs.cache
 
 .DS_Store
 .Trash
@@ -17,4 +18,4 @@
 nuget
 
 # Mostly generated Docker Compose files...
-*.generated.yml
+*.generated.yml*
