@@ -20,7 +20,6 @@
 /floobits
 
 /*_history
-/.lesshst
 
 /default-soapui-workspace.xml
 /soapui-settings.xml
@@ -36,15 +35,6 @@ tmp
 /bin
 
 /.*
-!/.config
-/.config/karabiner/automatic_backups
-/.config/psysh
-/.config/gh
-/.config/mc/ini
-
-# GitHub authentication token.
-/.config/hub
-/.composer/config.json
 
 /go
 
