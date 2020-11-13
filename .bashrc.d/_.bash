@@ -57,23 +57,28 @@ export PHP_CS_FIXER_FUTURE_MODE=1
 eval "$(symfony-autocomplete)"
 
 # Aliases.
+alias help="tldr"
+
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias cat="bat"
 alias json_pp="python -m json.tool"
 alias norg="gron --ungron"
 alias ungron="gron --ungron"
 alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
-alias ll="ls -alFh"
-alias la="ls -lAht"
+alias ll="exa -l"
+alias la="exa -l"
 alias grep="ggrep --color=always"
 alias find="gfind"
 alias g="git"
-alias gs="g s"
+alias gs="git s"
+alias gc="git c"
 alias dc="docker-compose"
 # Public IP address.
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Local IP address.
 alias local-ip="ipconfig getifaddr en0"
+alias ping="prettyping --nolegend"
 
 alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'

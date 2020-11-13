@@ -20,9 +20,11 @@
         "fabpot/goutte": "@stable",
 
         "pyrech/composer-changelogs": "@stable",
-        "hirak/prestissimo": "^0.3.7",
-        "localheinz/composer-normalize": "@stable",
+        "ergebnis/composer-normalize": "@stable",
         "sllh/composer-versions-check": "^2.0",
         "davidrjonas/composer-lock-diff": "^1.0@beta"
+    },
+    "config": {
+        "platform-check": false
     }
 }
