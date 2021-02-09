@@ -1,6 +1,7 @@
 # See https://starship.rs/config/
 
 [memory_usage]
+threshold = 90
 disabled = false
 
 [docker_context]

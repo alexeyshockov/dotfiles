@@ -21,7 +21,6 @@
 
         "pyrech/composer-changelogs": "@stable",
         "ergebnis/composer-normalize": "@stable",
-        "sllh/composer-versions-check": "^2.0",
         "davidrjonas/composer-lock-diff": "^1.0@beta"
     },
     "config": {
