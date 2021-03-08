@@ -58,11 +58,6 @@
 [tag]
 	forceSignAnnotated = true
 
-# Override all from above
-[include]
-	# Local overrides (work, etc.)
-	path = ~/.gitconfig.local
-
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 	v = log --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --abbrev-commit --date=short -1
@@ -98,3 +93,8 @@
 
 	please = push --force-with-lease
 #	ca = commit --amend --no-edit
+
+# Override all from above
+[include]
+	# Local overrides (work, etc.)
+	path = ~/.gitconfig.local
