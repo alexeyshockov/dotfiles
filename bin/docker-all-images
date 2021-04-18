@@ -1,3 +1,0 @@
-#!/bin/sh
-
-docker images --all --format '{{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}' | sort -h -r | column -t

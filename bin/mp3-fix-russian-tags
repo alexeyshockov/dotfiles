@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#
-# На вход принимается единственный параметр - файл(ы) для конвертации.
-#
-# Детальное описание: http://null-step.blogspot.ru/2008/05/id3iconv.html
-#
-
-java -jar ~/bin/id3iconv-0.2.1.jar -e cp1251 $1
