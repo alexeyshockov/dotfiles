@@ -76,10 +76,16 @@ alias g="git"
 alias gs="git s"
 alias gc="git c"
 alias dc="docker-compose"
-# Public IP address.
-alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
-# Local IP address.
+
+# Local & public IP addresses
+alias publicip='dig @resolver4.opendns.com myip.opendns.com +short -4'
+alias public-ip='dig @resolver4.opendns.com myip.opendns.com +short -4'
+alias ip{4,}='dig @resolver4.opendns.com myip.opendns.com +short -4' # You can use ip4 or ip to get your ipv4
+alias ip6='dig @ns1.google.com TXT o-o.myaddr.l.google.com +short -6' # https://unix.stackexchange.com/a/81699
+alias localip="ipconfig getifaddr en0"
 alias local-ip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
 alias ping="prettyping --nolegend"
 
 alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'

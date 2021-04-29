@@ -22,8 +22,8 @@ symbol = " "
 [directory]
 read_only = " "
 
-[docker]
-symbol = " "
+#[docker]
+#symbol = " "
 
 [elixir]
 symbol = " "
@@ -37,8 +37,8 @@ symbol = " "
 [golang]
 symbol = " "
 
-[haskell]
-symbol = " "
+#[haskell]
+#symbol = " "
 
 [hg_branch]
 symbol = " "
