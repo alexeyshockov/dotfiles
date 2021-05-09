@@ -2,14 +2,14 @@
     "require": {
         "psy/psysh": "@stable",
         "squizlabs/php_codesniffer": "@stable",
-        "friendsofphp/php-cs-fixer": "@stable",
+        "friendsofphp/php-cs-fixer": "~3",
         "rector/rector": "@stable",
         "phpmetrics/phpmetrics": "@stable",
         "phpstan/phpstan": "@stable",
 
         "phan/phan": "@stable",
 
-        "vimeo/psalm": "@stable",
+        "vimeo/psalm": "~4.6",
         "alexeyshockov/guzzle-psalm-plugin": "@dev",
         "weirdan/doctrine-psalm-plugin": "@dev",
 

@@ -98,6 +98,3 @@
 [include]
 	# Local overrides (work, etc.)
 	path = ~/.gitconfig.local
-
-[include]
-	path = /Users/alexeyshockov/.devx/gitconfig
