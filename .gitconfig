@@ -5,6 +5,7 @@
 [color]
 	ui = true
 [core]
+	ignorecase = false
 	autocrlf = input
 	editor = vim
 	whitespace = trailing-space, space-before-tab
