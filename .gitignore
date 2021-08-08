@@ -27,6 +27,8 @@
 
 tmp
 
+Microsoft/MSBuild
+
 /*.retry
 
 /.netrc
@@ -41,3 +43,4 @@ tmp
 
 battery_status.csv
 
+jbr_err_*.log

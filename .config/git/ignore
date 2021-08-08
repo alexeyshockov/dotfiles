@@ -22,3 +22,6 @@ nuget
 
 # Global .NET configs
 global.json
+
+# SonarCube tool artifacts
+.sonarqube

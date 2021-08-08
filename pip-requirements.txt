@@ -3,7 +3,7 @@ Markdown
 Pygments
 typogrify
 # PostgreSQL driver
-#psycopg2
+psycopg2
 mitmproxy
 gsutil
 docker-py
@@ -12,4 +12,4 @@ gspread
 pandas
 PyYAML
 pyinfra
-
+pylint
