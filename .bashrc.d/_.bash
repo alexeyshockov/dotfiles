@@ -1,5 +1,3 @@
-unset PROMPT_COMMAND
-
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 # All variables below may be set by LC_ALL.
@@ -10,15 +8,8 @@ export LC_MONETARY="C"
 export LC_NUMERIC="C"
 export LC_TIME="C"
 
-HOMEBREW_PREFIX="$(brew --prefix)"
-
 # GitHub token for Homebrew
 source ~/.bash_secrets
-
-# Better command prompt.
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
-#[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
-[[ $- = *i* ]] && eval "$(starship init bash)"
 
 PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/share/npm/bin:$PATH"
@@ -28,12 +19,8 @@ PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-units/libexec/gnubin:$PATH"
+
 PATH="$HOME/bin:$PATH"
-PATH="$HOME/.composer/vendor/bin:$PATH"
-# Add /usr/local/sbin to $PATH by replacing.
-PATH=${PATH/\/usr\/sbin/\/usr\/local\/sbin:\/usr\/sbin}
-PATH="$HOMEBREW_PREFIX/opt/openjdk/bin:$PATH"
-PATH="$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH"
 
 export GOPATH=$HOME/go
 export GOSUMDB=off
@@ -43,17 +30,12 @@ PATH=$PATH:$GOPATH/bin
 
 export PATH
 
-export JAVA_HOME=`/usr/libexec/java_home`
-
 export CLICOLOR="1"
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
 export PHP_CS_FIXER_FUTURE_MODE=1
-
-# Symfony console autocomplete...
-eval "$(symfony-autocomplete)"
 
 # Aliases.
 alias help="tldr"
@@ -91,17 +73,9 @@ alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 # Maven options (useful for mvn camel:run).
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
-# For Docker builds
-COMPOSER_AUTH_FILE=~/.composer/auth.json
-if [ -f "$COMPOSER_AUTH_FILE" ]; then
-    export COMPOSER_AUTH="$(cat $COMPOSER_AUTH_FILE)"
-fi
-
 export GPG_TTY=$(tty)
 
 source <(navi widget bash)
-
-eval "$(fasd --init auto)"
 
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 

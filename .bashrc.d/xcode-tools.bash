@@ -1,1 +1,2 @@
-PATH="$(xcode-select --print-path)/usr/bin:$PATH"
+# Always in the end! To not mess with all other Homebrew apps in $PATH...
+PATH="$PATH:$(xcode-select --print-path)/usr/bin"

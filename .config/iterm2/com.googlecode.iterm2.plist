@@ -776,7 +776,7 @@
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<true/>
+	<false/>
 	<key>OptionClickMovesCursor</key>
 	<false/>
 	<key>PasteTabToStringTabStopSize</key>

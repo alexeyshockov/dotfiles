@@ -13,4 +13,3 @@ yaml
 # enable http2 support? [no] : no
 # enable mysqlnd support? [no] : yes
 swoole
-

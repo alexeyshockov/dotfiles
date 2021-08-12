@@ -1,1 +1,1 @@
-export PATH="/usr/local/opt/ssh-copy-id/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/ssh-copy-id/bin:$PATH"

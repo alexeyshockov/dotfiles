@@ -587,6 +587,9 @@ has() {
     hash "$@" &>/dev/null
 }
 
+# Homebrew is a must
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Include individual bash configuration files.
 source_everything_in ~/.bashrc.d
 

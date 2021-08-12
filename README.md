@@ -4,26 +4,26 @@ To get familiar with the concept, read [this introduction from GitHub](https://d
 
 ## On a Fresh System
 
-Clone the repository first :)
+Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
+
+Then change the default shell to Bash. Then clone the repo and move the files to the home directory...
 
 ```
 $ cd /tmp
 $ git clone --recursive git@github.com:alexeyshockov/dotfiles.git
+$ shopt -s dotglob nullglob
 $ mv dotfiles/* ~/
 $ rm -rf dotfiles
 ```
 
-Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
 
-Install programms over Homebrew with [bundle](https://github.com/Homebrew/homebrew-bundle) (from ~/Brewfile):
+Install programms over Homebrew with [bundle](https://github.com/Homebrew/homebrew-bundle) (from `~/Brewfile`):
 
 ```
 $ brew bundle
 ```
 
 Install [this keyboard layout](https://github.com/tonsky/Universal-Layout).
-
-Enable [settings sync for JetBrains products](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#IDE_settings_sync).
 
 Enable [Touch ID support for `sudo`](https://dev.to/equiman/how-to-use-macos-s-touch-id-on-terminal-5fhg).
 
