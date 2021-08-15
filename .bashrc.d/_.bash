@@ -35,8 +35,6 @@ export CLICOLOR="1"
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-export PHP_CS_FIXER_FUTURE_MODE=1
-
 # Aliases.
 alias help="tldr"
 
@@ -76,8 +74,6 @@ export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 export GPG_TTY=$(tty)
 
 source <(navi widget bash)
-
-test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
 
 
