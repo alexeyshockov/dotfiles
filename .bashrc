@@ -11,9 +11,6 @@
 # CDPATH The search path for the cd command.  This is a colon-separated list of
 #        directories in which the shell looks for destination directories spec-
 #        ified by the cd command.  A sample value is ".:~:/usr".
-
-CDPATH=".:~:~/Projects:~/src"
-
 # COLUMNS
 #        Used by the select builtin command to  determine  the  terminal  width
 #        when  printing  selection  lists.  Automatically set upon receipt of a

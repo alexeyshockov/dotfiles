@@ -12,21 +12,17 @@ export LC_TIME="C"
 source ~/.bash_secrets
 
 PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
-PATH="$HOMEBREW_PREFIX/share/npm/bin:$PATH"
-PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="$HOMEBREW_PREFIX/opt/gnu-units/libexec/gnubin:$PATH"
 
-PATH="$HOME/bin:$PATH"
+PATH="$HOMEBREW_PREFIX/share/npm/bin:$PATH"
 
-export GOPATH=$HOME/go
-export GOSUMDB=off
-# For Go Homebrew package.
-PATH=$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin
-PATH=$PATH:$GOPATH/bin
+PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
+
+PATH="$HOME/bin:$PATH"
 
 export PATH
 
@@ -67,9 +63,6 @@ alias ping="prettyping --nolegend"
 
 alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
-
-# Maven options (useful for mvn camel:run).
-export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 export GPG_TTY=$(tty)
 

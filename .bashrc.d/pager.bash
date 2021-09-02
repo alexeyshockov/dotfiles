@@ -24,3 +24,6 @@ if has less; then
     export LESS_TERMCAP_us="$(tput smul)${base16_var}"
     export LESS_TERMCAP_ue="${ansi_reset}"
 fi
+
+# For Postgres 11 and newer
+export PSQL_PAGER="pspg"

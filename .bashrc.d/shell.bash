@@ -1,5 +1,13 @@
+#
+# Starship shell prompt
+#
+[[ $- = *i* ]] && eval "$(starship init bash)"
 
-# HSTR configuration - add this to ~/.bashrc
+
+
+#
+# HSTR (shell history suggest box)
+#
 alias hh=hstr                    # hh to be alias for hstr
 export HSTR_CONFIG=hicolor       # get more colors
 shopt -s histappend              # append new history items to .bash_history
@@ -12,4 +20,3 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
 if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-

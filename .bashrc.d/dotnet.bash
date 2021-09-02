@@ -1,12 +1,20 @@
 #
-# Install local SDKs with dotnet-install.sh
+# Install local SDKs with dotnet-install.sh... BUT better with the installer (dotnet-install.sh does not work properly 
+# on M1 to install mixed architectures)
+#
+# Please notice: .NET installer adds global binary to $PATH via /etc/path.d and /usr/libexec/path_helper utility...
 #
 # dotnet-install.sh -c 3.1
 # dotnet-install.sh -c 5.0
 # ...
 #
-export PATH="$PATH:/Users/alexeyshockov/.dotnet"
-export PATH="$PATH:/Users/alexeyshockov/.dotnet/tools"
+
+
+# Conflicts with the .NET installer method...
+#export PATH="$PATH:$HOME/.dotnet"
+
+# This one actually already exported to $PATH by the .NET installer
+#export PATH="$PATH:$HOME/.dotnet/tools"
 
 export DOTNET_ROOT="$(dirname $(which dotnet))"
 
