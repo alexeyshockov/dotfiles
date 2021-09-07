@@ -45,9 +45,6 @@ alias gnetstat="sudo lsof -i -nP"
 alias rm-broken-links="find -L . -type l | xargs -t -I {} rm {}"
 alias grep="ggrep --color=auto"
 alias find="gfind"
-alias g="git"
-alias gs="git s"
-alias gc="git c"
 alias dc="docker-compose"
 
 # Local & public IP addresses

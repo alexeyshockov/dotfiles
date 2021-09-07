@@ -93,7 +93,7 @@
 	clean-branches = "!git branch --merged | grep -v '*' | xargs -n 1 -t git branch -d"
 
 	please = push --force-with-lease
-#	ca = commit --amend --no-edit
+	ca = commit --amend --no-edit
 
 # Override all from above
 [include]
