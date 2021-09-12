@@ -1,5 +1,9 @@
 # See https://starship.rs/config/
 
+command_timeout = 1000
+# Inserts a blank line between shell prompts
+add_newline = true
+
 [docker_context]
 disabled = false
 
