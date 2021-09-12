@@ -1,5 +1,6 @@
 if has brew; then
-    try_to_source "$(brew --prefix)/etc/bash_completion"
+    # See bash-completion@2 for details
+    try_to_source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 fi
 try_to_source "/etc/bash_completion"
 
