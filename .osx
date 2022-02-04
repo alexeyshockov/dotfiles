@@ -117,17 +117,6 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 #
 chmod 700 .gnupg
 
-
-
-
-### TODO
-
-# Automatocally rearrange Spaces based on most recent use — OFF
-
-
-
-
-
 #
 # SSD tweaks
 #
@@ -151,3 +140,7 @@ echo
 echo "TODO by hands: turn off shortcuts for 'Move left a space' and 'Move right a space'!"
 echo
 
+
+### TODO
+
+# Automatocally rearrange Spaces based on most recent use — OFF
