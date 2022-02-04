@@ -8,14 +8,14 @@ add_newline = true
 disabled = false
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [status]
 disabled = false
 
 [aws]
 symbol = " "
-disabled = true
+disabled = false
 
 [conda]
 symbol = " "

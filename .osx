@@ -117,6 +117,17 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 #
 chmod 700 .gnupg
 
+
+
+
+### TODO
+
+# Automatocally rearrange Spaces based on most recent use — OFF
+
+
+
+
+
 #
 # SSD tweaks
 #
@@ -125,8 +136,6 @@ chmod 700 .gnupg
 sudo tmutil disablelocal
 # Disable the sudden motion sensor as it’s not useful for SSDs.
 #sudo pmset -a sms 0
-
-
 
 # Flush caches.
 killall -u $(whoami) cfprefsd

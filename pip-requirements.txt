@@ -2,14 +2,16 @@ ptpython
 Markdown
 Pygments
 typogrify
-# PostgreSQL driver
-psycopg2
+psycopg2  # PostgreSQL driver
 mitmproxy
-gsutil
 docker-py
-oauth2client
+gsutil
 gspread
-pandas
 PyYAML
 pyinfra
-pylint
+# pylint  # This one is packaged by Homebrew
+diagrams
+clickhouse-driver
+pandas
+pendulum
+python-dotenv

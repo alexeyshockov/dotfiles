@@ -25,3 +25,6 @@ global.json
 
 # SonarCube tool artifacts
 .sonarqube
+
+# direnv envornment files...
+.direnv
