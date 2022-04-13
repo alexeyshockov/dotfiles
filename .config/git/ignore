@@ -28,3 +28,5 @@ global.json
 
 # direnv envornment files...
 .direnv
+
+.hugo_build.lock

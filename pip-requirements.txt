@@ -1,15 +1,9 @@
-ptpython
-Markdown
-Pygments
-typogrify
 psycopg2  # PostgreSQL driver
 mitmproxy
 docker-py
-gsutil
-gspread
-PyYAML
+# gsutil  # Packaged by Homebrew
 pyinfra
-# pylint  # This one is packaged by Homebrew
+# pylint  # Packaged by Homebrew
 diagrams
 clickhouse-driver
 pandas
