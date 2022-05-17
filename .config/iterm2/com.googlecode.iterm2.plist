@@ -822,6 +822,8 @@
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
+	<key>RestoreWindowsToSameSpaces</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>SoundForEsc</key>
