@@ -1,10 +1,11 @@
 #
-# Install local SDKs with via the official installer.
+# The best way is to install local SDKs using the official installer (not dotnet-install script)
 #
 # Please notice: the installer adds `dotnet` binary to $PATH via /etc/path.d (/usr/libexec/path_helper utility).
 #
 
-export DOTNET_ROOT="$(dirname $(which dotnet))"
+# Not needed with the installer way...
+#export DOTNET_ROOT="$(dirname $(which dotnet))"
 
 alias dotnet-package-version=nbgv
 alias nuget-package-version=nbgv
