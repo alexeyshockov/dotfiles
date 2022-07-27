@@ -1,63 +1,80 @@
 [user]
 	name = Alexey Shokov
-	email = alexey@shokov.dev
-	signingkey = B068234E64AA1A9C
-[color]
-	ui = true
+[init]
+	defaultBranch = main
 [core]
 	ignorecase = false
 	autocrlf = input
 	editor = vim
 	whitespace = trailing-space, space-before-tab
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
+	fsyncMethod = batch
+
+[color]
+	ui = true
+[diff]
+    colorMoved = default
+[delta]
+    features = side-by-side line-numbers decorations
+    syntax-theme = Monokai Extended
+    plus-style = syntax "#003800"
+    minus-style = syntax "#3f0001"
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-style = raw
+    hunk-header-decoration-style = ul
+
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[add.interactive]
+    useBuiltin = false # (delta) required for git 2.37.0
+
 [commit]
 	verbose = true
-[credential]
-	helper = osxkeychain
 [fetch]
 	prune = true
 [clean]
 	requireForce = true
 [branch]
 	autoSetupRebase = always
-[help]
-	autoCorrect = 10
-[apply]
-	whitespace = fix
-[github]
-	user = alexeyshockov
-[sendemail]
-	smtpserver = smtp.gmail.com
-	smtpuser = alexey@shockov.com
-	smtpserverport = 587
-	smtpencryption = tls
-[hub]
-	protocol = https
+[merge]
+    conflictstyle = diff3
+[rebase]
+	autoSquash = true
+	autoStash = true
+[stash]
+	showPatch = true
+[tag]
+	forceSignAnnotated = true
 [rerere]
 	enabled = true
 [push]
 	default = simple
 [log]
 	follow = true
+
+[help]
+	autoCorrect = 10
+[apply]
+	whitespace = fix
+
+[github]
+	user = alexeyshockov
+
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
-[diff]
-	tool = icdiff
-[difftool]
-	prompt = false
-[difftool "icdiff"]
-	cmd = /usr/local/bin/icdiff $LOCAL $REMOTE
-[rebase]
-	autoSquash = true
-	autoStash = true
-[stash]
-	showPatch = true
-[commit]
-	gpgsign = true
-[tag]
-	forceSignAnnotated = true
+	process = git-lfs filter-process
 
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
@@ -95,7 +112,6 @@
 	please = push --force-with-lease
 	ca = commit --amend --no-edit
 
-# Override all from above
 [include]
 	# Local overrides (work, etc.)
 	path = ~/.gitconfig.local

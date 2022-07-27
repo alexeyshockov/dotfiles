@@ -1,15 +1,18 @@
+yaml
 ds
-imagick
+
+xdebug
+
 mongodb
 rdkafka
-xdebug
+# Use /opt/homebrew/Cellar/rabbitmq-c/0.11.0 as librabbitmq path
+amqp
+
 # For Phan static analyzer
 ast
-# Use /usr/local/Cellar/rabbitmq-c/0.10.0 as librabbitmq path
-amqp
-yaml
+
 # enable sockets supports? [no] : yes
 # enable openssl support? [no] : no
 # enable http2 support? [no] : no
 # enable mysqlnd support? [no] : yes
-swoole
+#swoole

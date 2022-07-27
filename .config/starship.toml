@@ -1,8 +1,16 @@
 # See https://starship.rs/config/
 
-command_timeout = 1000
+# A minimal left prompt
+format = """$character"""
+# And move the rest of the prompt to the right
+right_format = """$all"""
+
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
+
+[character]
+success_symbol = " 🤡"
+error_symbol = " 🙈"
 
 [docker_context]
 disabled = false
@@ -10,82 +18,9 @@ disabled = false
 [kubernetes]
 disabled = true
 
-[status]
-disabled = false
-
-[aws]
-symbol = " "
-disabled = false
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[directory]
-read_only = " "
-
-#[docker]
-#symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[git_branch]
-symbol = " "
-
-[golang]
-symbol = " "
-
-#[haskell]
-#symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
 [memory_usage]
-symbol = " "
 threshold = 90
 disabled = false
 
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[package]
-symbol = " "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-disabled = true
-
-[python]
-symbol = " "
-
 [ruby]
-symbol = " "
 disabled = true
-
-[rust]
-symbol = " "
-
-[swift]
-symbol = "ﯣ "

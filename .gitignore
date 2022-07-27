@@ -39,6 +39,11 @@ Microsoft/MSBuild
 
 /.*
 
+!/.config/
+/.config/*
+!/.config/fish/
+/.config/fish/fish_variables
+
 /go
 
 battery_status.csv

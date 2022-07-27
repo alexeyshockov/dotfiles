@@ -1,1 +1,0 @@
-alias ps=procs

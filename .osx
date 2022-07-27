@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ~/.osx — http://mths.be/osx
+# See also https://github.com/matchai/dotfiles/blob/b6c6a701d0af8d145a8370288c00bb9f0648b5c2/bin/macos
 
 echo `sysctl -n hw.model` `sysctl -n machdep.cpu.brand_string`
 echo "Setting up preferences..."
@@ -30,7 +31,7 @@ defaults write com.apple.dock mru-spaces -bool false
 # Menu Bar
 #
 
-defaults write NSGlobalDomain _HIHideMenuBar -bool false
+#defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 #
 # Dock
@@ -67,7 +68,7 @@ defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 #    clear && defaults read com.apple.spotlight orderedItems | tr '\n' ' ' | tr -s ' ' ' ' | gsed -e "s/}, /}' \\\\\n    '/g"
 
 # Load new settings before rebuilding the index
-sudo killall mds
+#sudo killall mds
 #sleep 5;
 
 # Make sure indexing is enabled for the main volume
@@ -82,31 +83,6 @@ sudo killall mds
 # TODO Night Shift — Sunset to Sunrise (sudo defaults find Night Shift)
 
 #
-# Activity Monitor
-#
-
-# Visualize CPU usage in the Activity Monitor Dock icon.
-defaults write com.apple.ActivityMonitor IconType -int 5
-
-#
-# Safari
-#
-
-# Enable Safari’s debug menu.
-#defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-# Make Safari’s search banners default to Contains instead of Starts With.
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-# Disable Safari’s thumbnail cache for History and Top Sites
-#defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-
-# Enable the Develop menu and the Web Inspector in Safari.
-#defaults write com.apple.Safari IncludeDevelopMenu -bool true
-#defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-#
 # iTerm2
 #
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm2"
@@ -117,30 +93,9 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 #
 chmod 700 .gnupg
 
-#
-# SSD tweaks
-#
-
-# Disable local Time Machine snapshots.
-sudo tmutil disablelocal
-# Disable the sudden motion sensor as it’s not useful for SSDs.
-#sudo pmset -a sms 0
-
-# Flush caches.
-killall -u $(whoami) cfprefsd
-
-# Restart programms.
-for app in "cfprefsd" "Dock" "Finder" "SystemUIServer"; do
-	sudo killall "${app}"
-done
-
-echo "Done. Note that some of these changes require a logout/restart to take effect."
-
-echo
-echo "TODO by hands: turn off shortcuts for 'Move left a space' and 'Move right a space'!"
-echo
-
 
 ### TODO
+
+# Turn off shortcuts for 'Move left a space' and 'Move right a space'
 
 # Automatocally rearrange Spaces based on most recent use — OFF

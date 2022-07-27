@@ -1,6 +1,4 @@
-# Hat tip: https://coderwall.com/p/oqtj8w
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# Started from https://github.com/TimMoore/dotfiles/blob/master/.inputrc
 
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
@@ -12,6 +10,35 @@
 "\e[5D": backward-word
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+
+# Option + Arrows to jump words
+# (To use these in ITerm2 you may also need to configure preferences to send the correct escape code for the key combination)
+# (See https://gist.github.com/dpup/2424128)
+# (Also see https://gist.github.com/gregorynicholas/1812027)
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+
+# The following are other escape sequences that can be configured in Iterm2 preferences
+#        ESC ^H   Delete previous word (backspace key) [n]
+#        ESC DEL  Delete previous word (delete key) [n]
+#        ESC SP   Set the mark (space key); see ^X^X and ^Y above
+#        ESC .    Get the last (or [n]'th) word from previous line
+#        ESC ?    Show possible completions; see below
+#        ESC <    Move to start of history
+#        ESC >    Move to end of history
+#        ESC b    Move backward a word [n]
+#        ESC d    Delete word under cursor [n]
+#        ESC f    Move forward a word [n]
+#        ESC l    Make word lowercase [n]
+#        ESC u    Make word uppercase [n]
+#        ESC y    Yank back last killed text
+#        ESC v    Show library version
+#        ESC w    Make area up to mark yankable
+#        ESC nn   Set repeat count to the number nn
+#        ESC C    Read from environment variable ``_C_'', where C is
+#                 an uppercase letter
+
+
 
 # Except where noted, readline variables can take the values On or Off (without
 # regard  to  case).  Unrecognized variable names are ignored.  When a variable

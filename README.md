@@ -1,106 +1,90 @@
-# My Mac OS Settings
+# Alex's dotfiles
 
 To get familiar with the concept, read [this introduction from GitHub](https://dotfiles.github.io). There are many `dotfiles` repos out there, but the most popular and inspiring one is probably [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
-## On a Fresh System
+## Installation
 
 Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
 
-Change the default shell to Bash:
-
-```console
-$ brew install bash
-$ sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
-$ chsh -s /opt/homebrew/bin/bash
-```
-
 Clone this repo and move the files to your home directory...
 
-```console
-$ cd /tmp
-$ git clone --recursive git@github.com:alexeyshockov/dotfiles.git
-$ shopt -s dotglob nullglob
-$ mv dotfiles/* ~/
-$ rm -rf dotfiles
+```shell
+cd /tmp
+git clone --recursive git@github.com:alexeyshockov/dotfiles.git
+shopt -s dotglob nullglob
+mv dotfiles/* ~/
+rm -rf dotfiles
 ```
 
-Install all the programms over Homebrew using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
+Install all the programms using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
 
-```console
-$ brew bundle
+```shell
+brew bundle
 ```
+
+### Fish
+
+Change the default shell:
+
+```shell
+sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
+chsh -s /opt/homebrew/bin/fish
+```
+
+### MacOS
 
 Install [this custom RU/EN keyboard layout](https://github.com/tonsky/Universal-Layout).
 
-Enable [Touch ID support for `sudo`](https://dev.to/equiman/how-to-use-macos-s-touch-id-on-terminal-5fhg).
+Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/132816): just add `auth    sufficient    pam_tid.so` to `/etc/pam.d/sudo`.
 
-Finally, import GPG keys to the system.
+### iTerm2
 
-### Clickhouse for M1 Macs
-
-Currently no Homebrew packages are available, so just install the latest build manually:
-
-```console
-$ sudo curl -s --fail --output-dir /usr/local/bin -O 'https://builds.clickhouse.com/master/macos-aarch64/clickhouse' && sudo chmod a+x /usr/local/bin/clickhouse
+```shell
+curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 ```
 
-Now Clickhouse client is available:
+iTerm2 > Make iTerm2 Default Term
 
-```console
-$ clickhouse client --version
+### Touch ID for remote `sudo`
+
+In the `~/.ssh/config` for the server:
+
+```
+Host ...
+    ForwardAgent yes
 ```
 
-#### Yandex.Cloud certificates for managed Clickhouse
+And on the server itself:
 
-```console
-$ sudo mkdir -p ~/.clickhouse-client /usr/local/share/ca-certificates/Yandex && sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+```shell
+sudo apt install libpam-ssh-agent-auth
+sudo echo "Defaults env_keep += SSH_AUTH_SOCK" > /etc/sudoers.d/ssh-agent
 ```
+
++ add `auth sufficient pam_ssh_agent_auth.so file=~/.ssh/authorized_keys` to `/etc/pam.d/sudo`
+
+### Sublime Text
+
+Install [Package Control](https://packagecontrol.io), then install:
+ - [Pretty JSON](https://github.com/dzhibas/SublimePrettyJson)
+
+### Vim
+
+Install all the plugins with `:PlugInstall`
 
 ### PHP
 
-Link additional configuration to PHP:
+Link additional configuration:
 
-```console
-$ ln -s ~/php.ini $(php --ini | grep "Scan for additional .ini files in" | cut -d ':' -f 2)/local.ini
+```shell
+ln -s ~/.config/php.ini $(php --ini | grep "Scan for additional .ini files in" | cut -d ':' -f 2 | sed -e 's/^[[:space:]]*//')/local.ini
 ```
 
-Install required PHP extensions from `php-pecl-requirements.txt`.
+Install global apps:
 
-Configure PHP and install apps:
-
-```console
-$ ln -s ~/.config/php.ini /opt/homebrew/etc/php/8.0/conf.d/local.ini
-$ composer g install
+```shell
+composer g install
 ```
 
-### Python
-
-Install Python apps:
-
-```console
-$ pip3 install --upgrade pip
-$ pip3 install -r pip-requirements.txt
-```
-
-Also for local projects take a look at `pyenv` and `direnv` integration: https://github.com/direnv/direnv/wiki/Python#pyenv
-
-### .NET
-
-To keep older amd64 SDKs on an Apple Silicon Mac, do the following:
-- install the official .NET 5 SDK from MS website (it will be intalled)
-
-...
-
-About installation: https://docs.microsoft.com/en-us/dotnet/core/install/macos?tabs=netcore2x#download-and-manually-install
-
-About notarization: https://docs.microsoft.com/en-us/dotnet/core/install/macos-notarization-issues
-
-### Ruby
-
-Install Ruby apps:
-
-```console
-$ gem update
-$ gem install bundler
-$ bundle install
-```
+(C extensions should be installed manually using PECL, see `php-pecl-requirements.txt`).
