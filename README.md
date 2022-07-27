@@ -4,19 +4,17 @@ To get familiar with the concept, read [this introduction from GitHub](https://d
 
 ## Installation
 
-Install [Homebrew](http://brew.sh/), then run `brew doctor` for further instructions (XCode,..).
+First, install [Homebrew](http://brew.sh/) and run `brew doctor` for further instructions (XCode,..).
 
-Clone this repo and move the files to your home directory...
+Then just clone this repo:
 
 ```shell
-cd /tmp
-git clone --recursive git@github.com:alexeyshockov/dotfiles.git
-shopt -s dotglob nullglob
-mv dotfiles/* ~/
-rm -rf dotfiles
+git clone --bare git@github.com:alexeyshockov/dotfiles.git ~/.dotfiles
 ```
 
-Install all the programms using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
+### Homebrew apps
+
+Restore everything using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
 
 ```shell
 brew bundle
