@@ -12,9 +12,6 @@ add_newline = false
 success_symbol = " 🤡"
 error_symbol = " 🙈"
 
-[docker_context]
-disabled = false
-
 [kubernetes]
 disabled = true
 
@@ -23,4 +20,20 @@ threshold = 90
 disabled = false
 
 [ruby]
+disabled = true
+
+[nodejs]
+detect_files = [".node-version", ".nmvrc"]
+detect_folders = []
+
+[php]
+detect_extensions = []
+detect_files = [".phpbrewrc", ".php-version"]
+detect_folders = []
+
+[python]
+pyenv_version_name = true
+format = 'via [${symbol}${pyenv_prefix}(${version} )]($style)'
+
+[gcloud]
 disabled = true

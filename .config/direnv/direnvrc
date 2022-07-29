@@ -1,0 +1,4 @@
+# PHPBrew, as per https://github.com/direnv/direnv/wiki/Php
+# Actually it supports .phpbrewrc config out of the box, so no need...
+# See https://github.com/phpbrew/phpbrew/wiki/Using-.phpbrewrc-files
+#use_phpbrew() {}
