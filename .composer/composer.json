@@ -3,19 +3,18 @@
         "psy/psysh": "@stable",
 
         "squizlabs/php_codesniffer": "@stable",
-        "friendsofphp/php-cs-fixer": "~3",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "laravel/pint": "@stable",
         "rector/rector": "@stable",
         "phpmetrics/phpmetrics": "@stable",
         "phpstan/phpstan": "@stable",
         "vimeo/psalm": "@stable",
 
-        "bamarni/symfony-console-autocomplete": "@stable",
-
         "guzzlehttp/guzzle": "~7.1",
 
         "pyrech/composer-changelogs": "@stable",
         "ergebnis/composer-normalize": "@stable",
-        "davidrjonas/composer-lock-diff": "^1.0@beta"
+        "davidrjonas/composer-lock-diff": "@stable"
     },
     "config": {
         "platform-check": false,

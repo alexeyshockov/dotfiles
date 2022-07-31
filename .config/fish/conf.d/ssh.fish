@@ -1,7 +1,7 @@
-# MacOS Keychain for SSH keys, replaced by 1Password
+# MacOS Keychain for SSH keys, replaced by 1Password (below)
 # See https://www.technomancer.com/archives/464
 # See https://blog.1password.com/1password-ssh-agent/ & https://developer.1password.com/docs/ssh/get-started
-#if ! ssh-add -l >/dev/null
+#if ! ssh-add -l > /dev/null
 #    ssh-add --apple-use-keychain ~/.ssh/id_rsa
 #end
 

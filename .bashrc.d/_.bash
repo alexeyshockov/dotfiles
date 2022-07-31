@@ -10,7 +10,6 @@ export LC_TIME="C"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
-PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
+eval "$(direnv hook bash)"
 
-export PATH
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

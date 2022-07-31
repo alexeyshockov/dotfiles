@@ -2,6 +2,7 @@
 
 # ~/.osx — http://mths.be/osx
 # See also https://github.com/matchai/dotfiles/blob/b6c6a701d0af8d145a8370288c00bb9f0648b5c2/bin/macos
+# And https://www.bresink.com/osx/TinkerTool.html
 
 echo `sysctl -n hw.model` `sysctl -n machdep.cpu.brand_string`
 echo "Setting up preferences..."

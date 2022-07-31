@@ -1,1 +1,1 @@
-has navi && navi widget fish | source
+has navi && status is-interactive && navi widget fish | source

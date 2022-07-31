@@ -4,12 +4,13 @@ To get familiar with the concept, read [this introduction from GitHub](https://d
 
 ## Installation
 
-First, install [Homebrew](http://brew.sh/) and run `brew doctor` for further instructions (XCode,..).
+First, install [Homebrew](http://brew.sh/) and follow `brew doctor`'s instructions (install XCode command line tools,..).
 
 Then just clone this repo:
 
 ```shell
 git clone --bare git@github.com:alexeyshockov/dotfiles.git ~/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ```
 
 ### Homebrew apps
