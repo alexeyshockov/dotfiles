@@ -1,4 +1,4 @@
-abbr -a g git
-abbr -a gs git s
-abbr -a gc git c
-abbr -a gp git pull
+abbr --add --global g git
+abbr --add --global gs git s
+abbr --add --global gc git c
+abbr --add --global gp git pull
