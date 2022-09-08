@@ -1,19 +1,18 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 set -e
 #set -x
 
-MAIN_BRANCH=$1
-[ -z "$MAIN_BRANCH" ] && echo "Please give the main branch name" && exit 1
+MAIN_BRANCH=${1:-main}
+BASE=${2:-origin}
 
 echo "Cleaning up all merged to '$MAIN_BRANCH' branch..."
 
 git fetch --all --quiet
-
-git remote prune origin
+git remote prune $BASE
 
 echo "Branches to delete:"
-git branch -r --merged origin/$MAIN_BRANCH | grep origin | grep -v '\*\|master\|main\|develop' | sed 's/origin\///'
-echo "Cleaning up..."
+git branch -r --merged "$BASE/$MAIN_BRANCH" | grep $BASE | grep -v "$BASE/$MAIN_BRANCH" | xargs -L1 | sed 's/'$BASE'\///'
 
-git branch -r --merged origin/$MAIN_BRANCH | grep origin | grep -v '\*\|master\|main\|develop' | sed 's/origin\///' | xargs -P 5 -n 1 git push --delete origin
+echo "Cleaning up..."
+git branch -r --merged "$BASE/$MAIN_BRANCH" | grep $BASE | grep -v "$BASE/$MAIN_BRANCH" | xargs -L1 | sed 's/'$BASE'\///' | xargs -P 5 -n 1 -t git push origin --delete
