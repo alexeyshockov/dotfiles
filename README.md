@@ -43,7 +43,10 @@ Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/13
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 ```
 
-iTerm2 > Make iTerm2 Default Term
+`iTerm2` > `Make iTerm2 Default Term`
+
+
+Color scheme (already installed): https://github.com/sindresorhus/iterm2-snazzy
 
 ### Touch ID for remote `sudo`
 
@@ -74,7 +77,7 @@ Install all the plugins with `:PlugInstall`
 
 ### PHP
 
-Link additional configuration:
+To link additional (local) configuration:
 
 ```shell
 ln -s ~/.config/php.ini $(php --ini | grep "Scan for additional .ini files in" | cut -d ':' -f 2 | sed -e 's/^[[:space:]]*//')/local.ini
