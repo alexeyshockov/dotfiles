@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 # ~/.osx — http://mths.be/osx
-# See also https://github.com/matchai/dotfiles/blob/b6c6a701d0af8d145a8370288c00bb9f0648b5c2/bin/macos
-# And https://www.bresink.com/osx/TinkerTool.html
+# see also https://github.com/matchai/dotfiles/blob/b6c6a701d0af8d145a8370288c00bb9f0648b5c2/bin/macos
+# and also https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
+# and also https://gist.github.com/sohooo/3199249
+# and https://www.bresink.com/osx/TinkerTool.html
 
 echo `sysctl -n hw.model` `sysctl -n machdep.cpu.brand_string`
 echo "Setting up preferences..."
@@ -47,6 +49,10 @@ defaults write com.apple.dock magnification -bool true
 
 #defaults write -g com.apple.keyboard.fnState -boolean true
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# "Use keyboard navigation to move focus between controls"
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 #
 # Security
@@ -96,7 +102,3 @@ chmod 700 .gnupg
 
 
 ### TODO
-
-# Turn off shortcuts for 'Move left a space' and 'Move right a space'
-
-# Automatocally rearrange Spaces based on most recent use — OFF

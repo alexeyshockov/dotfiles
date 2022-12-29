@@ -90,3 +90,7 @@ composer g install
 ```
 
 (C extensions should be installed manually using PECL, see `php-pecl-requirements.txt`).
+
+### Choosy rules
+
+Just link the ruleset to `~/Library/Application Support/Choosy/behaviours.plist` (import/export is not implemented at the moment, unfortunately).

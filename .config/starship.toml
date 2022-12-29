@@ -1,5 +1,8 @@
 # See https://starship.rs/config/
 
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # A minimal left prompt
 format = """$character"""
 # And move the rest of the prompt to the right
@@ -42,3 +45,6 @@ disabled = true
 detect_extensions = []
 detect_files = ["global.json"]
 detect_folders = []
+
+[aws]
+force_display=true

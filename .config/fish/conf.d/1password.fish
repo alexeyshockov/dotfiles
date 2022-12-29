@@ -1,0 +1,1 @@
+set -x OP_BIOMETRIC_UNLOCK_ENABLED true

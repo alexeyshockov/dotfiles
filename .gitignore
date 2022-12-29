@@ -47,6 +47,8 @@ Microsoft/MSBuild
 
 /go
 
+/bentoml
+
 battery_status.csv
 
 jbr_err_*.log
