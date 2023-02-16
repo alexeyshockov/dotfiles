@@ -1,5 +1,7 @@
 fish_add_path -g $HOME/.composer/vendor/bin
 
+set -gx COMPOSER_IGNORE_PLATFORM_REQS 1
+
 #
 # PHPBrew
 #

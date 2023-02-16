@@ -1,16 +1,23 @@
-# Install: dotnet tool install -g nbgv
-# Upgrade: dotnet tool update -g nbgv
-#alias dotnet-package-version='nbgv'
-#alias nuget-package-version='nbgv'
-
+# C# REPL
 # Install: dotnet tool install -g csharprepl
 # Upgrade: dotnet tool update -g csharprepl
 # See also: https://github.com/filipw/dotnet-script
-alias csharp='csharprepl'
+#alias csharp='csharprepl'
 
-# Other tools:
-#   dotnet tool install --global GitVersion.Tool
+# See: https://gsferreira.com/archive/2022/finding-dotnet-transitive-dependencies-and-tidying-up-your-project/
+# Install: dotnet tool install -g snitch
+# Upgrade: dotnet tool update -g snitch
+
+# NuGet versioning:
+#  dotnet tool install -g GitVersion.Tool
+#  dotnet tool install -g nbgv
+#alias dotnet-package-version='nbgv'
+#alias nuget-package-version='nbgv'
 
 alias dotnet-tool-upgrade-all="dotnet tool list -g | awk '{ print $1 }' | tail +3 | xargs -I % sh -c 'dotnet tool update -g %;'"
 
 alias dotnet-cleanup='find . -iname "bin" -o -iname "obj" -o -iname "TestResults" | xargs rm -rf'
+
+# .NET and Fish mess up together, Fish does not expand "~/.dotnet/tools" that is in /etc/paths.d/dotnet-cli-tools
+_fish_remove_path "~/.dotnet/tools"
+fish_add_path -g $HOME/.dotnet/tools

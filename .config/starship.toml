@@ -38,6 +38,9 @@ detect_folders = []
 pyenv_version_name = true
 format = 'via [${symbol}${pyenv_prefix}(${version} )]($style)'
 
+[package]
+disabled = true
+
 [gcloud]
 disabled = true
 

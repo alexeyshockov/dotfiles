@@ -75,6 +75,28 @@ Install [Package Control](https://packagecontrol.io), then install:
 
 Install all the plugins with `:PlugInstall`
 
+### Docker (Lima/Colima)
+
+```shell
+limactl start --name=docker ~/lima-default.yaml
+docker context create lima-docker --docker "host=unix://.../sock/docker.sock"
+docker context use lima-docker
+```
+
+#### BuildKit
+
+```shell
+docker buildx create --name uno --node local --driver=docker-container --bootstrap --use lima-docker
+```
+
+### Rust
+
+Install Rust dev tools by using:
+
+```shell
+rustup-init
+```
+
 ### PHP
 
 To link additional (local) configuration:
