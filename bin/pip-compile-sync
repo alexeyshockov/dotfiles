@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eux
+
+pip-compile -v --upgrade --resolver=backtracking --allow-unsafe pyproject.toml
+pip-compile -v --upgrade --resolver=backtracking --allow-unsafe --extra dev -o requirements-dev.txt pyproject.toml
+
+pip-sync requirements.txt requirements-dev.txt

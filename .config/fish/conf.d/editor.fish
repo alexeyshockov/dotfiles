@@ -1,1 +1,1 @@
-set -gx EDITOR $(which vim)
+set -gx EDITOR $(which micro)

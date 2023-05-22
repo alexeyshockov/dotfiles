@@ -5,7 +5,6 @@
 [core]
 	ignorecase = false
 	autocrlf = input
-	editor = vim
 	whitespace = trailing-space, space-before-tab
 	pager = delta
 	fsyncMethod = batch
@@ -59,6 +58,7 @@
 	enabled = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [log]
 	follow = true
 
