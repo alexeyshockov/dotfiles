@@ -71,9 +71,9 @@ sudo echo "Defaults env_keep += SSH_AUTH_SOCK" > /etc/sudoers.d/ssh-agent
 Install [Package Control](https://packagecontrol.io), then install:
  - [Pretty JSON](https://github.com/dzhibas/SublimePrettyJson)
 
-### Vim
+### ~~Vim~~ Amp
 
-Install all the plugins with `:PlugInstall`
+~~Install all the plugins with `:PlugInstall`~~ Just use it
 
 ### Docker (Lima/Colima)
 

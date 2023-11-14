@@ -9,7 +9,7 @@
 # See https://gist.github.com/akrylysov/7c1ea3bac409da2758e525f2f82e6373
 # See https://github.com/lima-vm/lima/blob/master/docs/multi-arch.md#fast-mode-2-rosetta-intel-containers-on-arm-vm-on-arm-host
 # See also https://github.com/lima-vm/lima/blob/master/docs/vmtype.md
-vmType: "vz"
+vmType: vz
 rosetta:
   enabled: true
   binfmt: true
@@ -31,11 +31,11 @@ images:
     digest: "sha256:76a0fc791ed48ea8d0325463e2748e06aa3836292df1178ee4af8daf12a643bf"
 
 mounts:
-  # - location: "~"
-  #   # CAUTION: `writable` SHOULD be false for the home directory.
-  #   # Setting `writable` to true is possible, but untested and dangerous.
-  #   # Builtin default: false
-  #   writable: false
+# - location: "~"
+#   # CAUTION: `writable` SHOULD be false for the home directory.
+#   # Setting `writable` to true is possible, but untested and dangerous.
+#   # Builtin default: false
+#   writable: false
   - location: "~/dev"
     writable: true
   - location: "/tmp/lima"

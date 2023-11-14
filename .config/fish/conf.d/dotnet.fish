@@ -14,8 +14,8 @@
 #alias dotnet-package-version='nbgv'
 #alias nuget-package-version='nbgv'
 
-alias dotnet-tools-upgrade-global="dotnet tool list -g | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -c 'dotnet tool update -g TOOL;'"
-alias dotnet-tools-upgrade="dotnet tool list --local | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -c 'dotnet tool update --local TOOL;'"
+alias dotnet-tools-upgrade-global="dotnet tool list -g | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -eux -c 'dotnet tool update -g TOOL;'"
+alias dotnet-tools-upgrade="dotnet tool list --local | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -eux -c 'dotnet tool update --local TOOL;'"
 
 alias dotnet-cleanup='find . -iname "bin" -o -iname "obj" -o -iname "TestResults" | xargs rm -rf'
 

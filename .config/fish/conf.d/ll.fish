@@ -1,10 +1,10 @@
 # https://github.com/gazorby/fish-exa/blob/master/functions/exa_git.fish
-function exa_git -d "Use exa with its git option if in a git repo"
+function eza_git -d "Use exa/eza with its Git option if in a Git repo"
     if git rev-parse --is-inside-work-tree &> /dev/null
-        exa --group --header --group-directories-first --long --git $argv
+        eza --group --header --group-directories-first --long --git $argv
     else
-        exa --group --header --group-directories-first --long $argv
+        eza --group --header --group-directories-first --long $argv
     end
 end
 
-alias ll=exa_git
+alias ll=eza_git

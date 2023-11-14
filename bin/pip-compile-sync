@@ -2,7 +2,18 @@
 
 set -eux
 
-pip-compile -v --upgrade --resolver=backtracking --allow-unsafe pyproject.toml
-pip-compile -v --upgrade --resolver=backtracking --allow-unsafe --extra dev -o requirements-dev.txt pyproject.toml
+pip install --upgrade pip wheel pip-tools
+
+if [ -f "./requirements.in" ]; then
+    pip-compile -v --upgrade --resolver=backtracking --allow-unsafe
+else 
+    pip-compile -v --upgrade --resolver=backtracking --allow-unsafe pyproject.toml
+fi
+
+if [ -f "./requirements-dev.in" ]; then
+    pip-compile -v --upgrade --resolver=backtracking --allow-unsafe -o requirements-dev.txt requirements-dev.in
+else 
+    pip-compile -v --upgrade --resolver=backtracking --allow-unsafe --extra dev -o requirements-dev.txt pyproject.toml
+fi
 
 pip-sync requirements.txt requirements-dev.txt
