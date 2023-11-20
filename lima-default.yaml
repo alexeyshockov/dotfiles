@@ -23,12 +23,12 @@ disk: null
 
 images:
   # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
-  - location: "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-amd64.img"
+  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-amd64.img"
     arch: "x86_64"
-    digest: "sha256:13965c84c65cbab0b34326ac34ac0c47a88030f9dff80e6391e56cb9077cadd0"
-  - location: "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-arm64.img"
+    digest: "sha256:f6529be56da3429a56e4f5ef202bf4958201bc63f8541e478caa6e8eb712e635"
+  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-arm64.img"
     arch: "aarch64"
-    digest: "sha256:76a0fc791ed48ea8d0325463e2748e06aa3836292df1178ee4af8daf12a643bf"
+    digest: "sha256:78d35a2f551d281912ee7e5202660d94d713aa1b5de86a17e261328cc2f093d4"
 
 mounts:
 # - location: "~"
