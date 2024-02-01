@@ -1,0 +1,9 @@
+{
+	"ignored_packages":
+	[
+		"Rust",
+		"Vintage",
+	],
+	"font_size": 13,
+	"index_files": true,
+}
