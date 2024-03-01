@@ -19,3 +19,8 @@ nuget
 
 # direnv envornment files...
 .direnv
+
+# Local experiments
+*.exp.*
+*-exp.*
+*_exp.*

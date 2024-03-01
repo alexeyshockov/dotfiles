@@ -1,0 +1,89 @@
+# See https://gist.github.com/akrylysov/7c1ea3bac409da2758e525f2f82e6373
+# See https://github.com/lima-vm/lima/blob/master/docs/multi-arch.md#fast-mode-2-rosetta-intel-containers-on-arm-vm-on-arm-host
+# See also https://github.com/lima-vm/lima/blob/master/docs/vmtype.md
+message: |
+  To run `docker` on the host (assumes docker-cli is installed), run the following commands:
+  ------
+  docker context create lima-{{.Name}} --docker "host=unix://{{.Dir}}/sock/docker.sock"
+  docker context use lima-{{.Name}}
+  docker run --rm hello-world
+  ------
+
+vmType: vz
+rosetta:
+  enabled: true
+  binfmt: true
+
+# Builtin default: 4
+cpus: 6
+# Builtin default: "4GiB"
+memory: 8GiB
+# Builtin default: "100GiB"
+disk: null
+
+images:
+  # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-amd64.img"
+    arch: "x86_64"
+    digest: "sha256:f6529be56da3429a56e4f5ef202bf4958201bc63f8541e478caa6e8eb712e635"
+  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-arm64.img"
+    arch: "aarch64"
+    digest: "sha256:78d35a2f551d281912ee7e5202660d94d713aa1b5de86a17e261328cc2f093d4"
+
+mounts:
+# - location: "~"
+#   # CAUTION: `writable` SHOULD be false for the home directory.
+#   # Setting `writable` to true is possible, but untested and dangerous.
+#   # Builtin default: false
+#   writable: false
+  - location: "~/dev"
+    writable: true
+  - location: "/tmp/lima"
+    writable: true
+mountType: "virtiofs"
+
+networks:
+  # The "vzNAT" IP address is accessible from the host, but not from other guests.
+  - vzNAT: true
+
+# containerd is managed by Docker, not by Lima, so the values are set to false here.
+containerd:
+  system: false
+  user: false
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      command -v docker >/dev/null 2>&1 && exit 0
+      if [ ! -e /etc/systemd/system/docker.socket.d/override.conf ]; then
+        mkdir -p /etc/systemd/system/docker.socket.d
+        # Alternatively we could just add the user to the "docker" group, but that requires restarting the user session
+        cat <<-EOF >/etc/systemd/system/docker.socket.d/override.conf
+        [Socket]
+        SocketUser=${LIMA_CIDATA_USER}
+      EOF
+      fi
+      export DEBIAN_FRONTEND=noninteractive
+      curl -fsSL https://get.docker.com | sh
+probes:
+  - script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
+        echo >&2 "docker is not installed yet"
+        exit 1
+      fi
+      if ! timeout 30s bash -c "until pgrep dockerd; do sleep 3; done"; then
+        echo >&2 "dockerd is not running"
+        exit 1
+      fi
+    hint: See "/var/log/cloud-init-output.log". in the guest
+hostResolver:
+  # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also
+  # resolve inside containers, and not just inside the VM itself.
+  hosts:
+    host.docker.internal: host.lima.internal
+portForwards:
+  - guestSocket: "/var/run/docker.sock"
+    hostSocket: "{{.Dir}}/sock/docker.sock"

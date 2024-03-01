@@ -13,22 +13,24 @@ git clone --bare git@github.com:alexeyshockov/dotfiles.git ~/.dotfiles
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ```
 
+### Default shell
+
+Fish is currently my login shell of choice. It's important to install/set if first, before installing other deps, so Homebrew installs completions for the right shell.
+
+```shell
+brew install bash fish
+# And change the default shell
+sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
+chsh -s /opt/homebrew/bin/fish
+```
+
 ### Homebrew apps
 
 Restore everything using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
 
 ```shell
 brew bundle
-```
-
-### Fish
-
-Change the default shell:
-
-```shell
-sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
-sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
-chsh -s /opt/homebrew/bin/fish
 ```
 
 ### MacOS
@@ -68,8 +70,7 @@ sudo echo "Defaults env_keep += SSH_AUTH_SOCK" > /etc/sudoers.d/ssh-agent
 
 ### Sublime Text
 
-Install [Package Control](https://packagecontrol.io), then install:
- - [Pretty JSON](https://github.com/dzhibas/SublimePrettyJson)
+Install [Package Control](https://packagecontrol.io), after that all the packages should be synched automatically...
 
 ### ~~Vim~~ Amp
 
@@ -78,7 +79,11 @@ Install [Package Control](https://packagecontrol.io), then install:
 ### Docker (Lima/Colima)
 
 ```shell
-limactl start --name=docker ~/lima-default.yaml
+limactl start --name=default ~/lima-default.yaml
+```
+
+```shell
+limactl start --name=docker ~/lima-docker.yaml
 docker context create lima-docker --docker "host=unix://.../sock/docker.sock"
 docker context use lima-docker
 ```

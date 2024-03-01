@@ -1,4 +1,5 @@
-alias dc='docker-compose'
+alias nerdctl='lima nerdctl'
+
 alias docker-cleanup-containers='docker rm $(docker ps -a -q -f "status=exited")'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 alias docker-all-images="docker images --all --format '{{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}' | sort -h -r | column -t"

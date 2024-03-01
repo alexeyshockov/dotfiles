@@ -1,21 +1,25 @@
 # C# REPL
-# Install: dotnet tool install -g csharprepl
-# Upgrade: dotnet tool update -g csharprepl
 # See also: https://github.com/filipw/dotnet-script
+#dotnet tool install -g csharprepl
 #alias csharp='csharprepl'
 
+# Find transitive package references that can be removed
 # See: https://gsferreira.com/archive/2022/finding-dotnet-transitive-dependencies-and-tidying-up-your-project/
-# Install: dotnet tool install -g snitch
-# Upgrade: dotnet tool update -g snitch
+#dotnet tool install -g snitch
 
-# NuGet versioning:
-#  dotnet tool install -g GitVersion.Tool
-#  dotnet tool install -g nbgv
-#alias dotnet-package-version='nbgv'
-#alias nuget-package-version='nbgv'
+# Dependency tree
+#dotnet tool install -g dotnet-depends
+
+# NuGet versioning
+#dotnet tool install -g GitVersion.Tool
+
+# Transient deps resolver (like pipdeptree or `composer why`)
+# See https://github.com/bjorkstromm/depends
+#dotnet tool install -g dotnet-depends
 
 alias dotnet-tools-upgrade-global="dotnet tool list -g | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -eux -c 'dotnet tool update -g TOOL;'"
-alias dotnet-tools-upgrade="dotnet tool list --local | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -eux -c 'dotnet tool update --local TOOL;'"
+# TODO Fix it somehow, it works in Terminal, but not as an alias!
+alias dotnet-tools-upgrade="dotnet tool list --local | awk '{ print $1 }' | tail -n +3 | xargs -I TOOL sh -eux -c 'dotnet tool update TOOL --local;'"
 
 alias dotnet-cleanup='find . -iname "bin" -o -iname "obj" -o -iname "TestResults" | xargs rm -rf'
 
