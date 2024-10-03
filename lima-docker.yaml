@@ -16,20 +16,26 @@ rosetta:
 
 # Builtin default: 4
 cpus: 6
-# Builtin default: "4GiB"
+# Builtin default: 4GiB
 memory: 8GiB
-# Builtin default: "100GiB"
-disk: null
+# Builtin default: 100GiB
+disk: 100GiB
 
 images:
   # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
-  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-amd64.img"
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-amd64.img"
     arch: "x86_64"
-    digest: "sha256:f6529be56da3429a56e4f5ef202bf4958201bc63f8541e478caa6e8eb712e635"
-  - location: "https://cloud-images.ubuntu.com/releases/23.10/release/ubuntu-23.10-server-cloudimg-arm64.img"
+    digest: "sha256:0e25ca6ee9f08ec5d4f9910054b66ae7163c6152e81a3e67689d89bd6e4dfa69"
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-arm64.img"
     arch: "aarch64"
-    digest: "sha256:78d35a2f551d281912ee7e5202660d94d713aa1b5de86a17e261328cc2f093d4"
+    digest: "sha256:5ecac6447be66a164626744a87a27fd4e6c6606dc683e0a233870af63df4276a"
+  # Fallback to the latest release image. Hint: run `limactl prune` to invalidate the cache.
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
+    arch: "x86_64"
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-arm64.img"
+    arch: "aarch64"
 
+mountType: virtiofs
 mounts:
 # - location: "~"
 #   # CAUTION: `writable` SHOULD be false for the home directory.
@@ -40,17 +46,26 @@ mounts:
     writable: true
   - location: "/tmp/lima"
     writable: true
-mountType: "virtiofs"
 
 networks:
-  # The "vzNAT" IP address is accessible from the host, but not from other guests.
-  - vzNAT: true
+# Simply does not work... Probably due to some firewall rules.
+#  # The "vzNAT" IP address is accessible from the host, but not from other guests
+#  - vzNAT: true
 
-# containerd is managed by Docker, not by Lima, so the values are set to false here.
+# containerd is managed by Docker, not by Lima, so the values are set to false here
 containerd:
   system: false
   user: false
+
 provision:
+  - mode: system
+    # This script defines the host.docker.internal hostname when hostResolver is disabled.
+    # It is also needed for lima 0.8.2 and earlier, which does not support hostResolver.hosts.
+    # Names defined in /etc/hosts inside the VM are not resolved inside containers when
+    # using the hostResolver; use hostResolver.hosts instead (requires lima 0.8.3 or later).
+    script: |
+      #!/bin/sh
+      sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
   - mode: system
     script: |
       #!/bin/bash
@@ -61,10 +76,9 @@ provision:
         # Alternatively we could just add the user to the "docker" group, but that requires restarting the user session
         cat <<-EOF >/etc/systemd/system/docker.socket.d/override.conf
         [Socket]
-        SocketUser=${LIMA_CIDATA_USER}
+        SocketUser={{.User}}
       EOF
       fi
-      export DEBIAN_FRONTEND=noninteractive
       curl -fsSL https://get.docker.com | sh
 probes:
   - script: |
@@ -79,11 +93,13 @@ probes:
         exit 1
       fi
     hint: See "/var/log/cloud-init-output.log". in the guest
+
 hostResolver:
-  # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also
-  # resolve inside containers, and not just inside the VM itself.
+  # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also resolve inside 
+  # containers, and not just inside the VM itself.
   hosts:
     host.docker.internal: host.lima.internal
+
 portForwards:
   - guestSocket: "/var/run/docker.sock"
     hostSocket: "{{.Dir}}/sock/docker.sock"

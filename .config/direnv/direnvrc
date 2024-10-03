@@ -1,4 +1,22 @@
 # PHPBrew, as per https://github.com/direnv/direnv/wiki/Php
-# Actually it supports .phpbrewrc config out of the box, so no need...
+# Actually, it supports .phpbrewrc config out of the box, so no need...
 # See https://github.com/phpbrew/phpbrew/wiki/Using-.phpbrewrc-files
 #use_phpbrew() {}
+
+# uv support for Python projects, as per https://github.com/direnv/direnv/wiki/Python#uv
+# See also: https://github.com/direnv/direnv/issues/1250#issuecomment-2335014972
+layout_uv() {
+    if [[ -d ".venv" ]]; then
+        VIRTUAL_ENV="$(pwd)/.venv"
+    fi
+
+    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+        log_status "No virtual environment exists. Executing \`uv venv\` to create one."
+        uv venv
+        VIRTUAL_ENV="$(pwd)/.venv"
+    fi
+
+    PATH_add "$VIRTUAL_ENV/bin"
+    export UV_ACTIVE=1  # or VENV_ACTIVE=1
+    export VIRTUAL_ENV
+}

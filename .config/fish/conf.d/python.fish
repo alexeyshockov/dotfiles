@@ -5,3 +5,8 @@
 
 # pipx
 fish_add_path -g $HOME/.local/bin
+
+# pyenv
+set -gx PYENV_ROOT $HOME/.pyenv
+fish_add_path -g $PYENV_ROOT/bin
+pyenv init - | source

@@ -37,18 +37,32 @@ brew bundle
 
 Install [this custom RU/EN keyboard layout](https://github.com/tonsky/Universal-Layout).
 
-Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/132816): just add `auth    sufficient    pam_tid.so` to `/etc/pam.d/sudo`.
+Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/132816): just add the line below to `/etc/pam.d/sudo`.
+
+```
+auth    sufficient    pam_tid.so
+```
+
+### Exclude directories from Spotlight / search
+
+`Siri & Spotlight` > `Spotlight Privacy` > ...
 
 ### iTerm2
 
+`iTerm2` > `Make iTerm2 Default Term`
+
+Color scheme (already installed): https://github.com/sindresorhus/iterm2-snazzy
+
+#### Settings
+1. open iTerm for the first time, go to `General` > `Settings`, enable `Load settings from a custom folder or URL`
+2. close the app
+3. revert autaically saved changes with `dotfiles checkout ../.config/iterm2`
+
+
+#### Shell integration
 ```shell
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 ```
-
-`iTerm2` > `Make iTerm2 Default Term`
-
-
-Color scheme (already installed): https://github.com/sindresorhus/iterm2-snazzy
 
 ### Touch ID for remote `sudo`
 

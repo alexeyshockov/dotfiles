@@ -27,7 +27,7 @@ sudo -v
 # Spaces
 #
 
-# Don’t automatically rearrange Spaces based on most recent use.
+# Don’t "Automatically rearrange Spaces based on most recent use".
 defaults write com.apple.dock mru-spaces -bool false
 
 #
@@ -47,8 +47,11 @@ defaults write com.apple.dock magnification -bool true
 # Keyboard
 #
 
-#defaults write -g com.apple.keyboard.fnState -boolean true
+defaults write -g com.apple.keyboard.fnState -boolean true
+# Keyboard Navigation
+defaults write -g AppleKeyboardUIMode -bool true
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # "Use keyboard navigation to move focus between controls"
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
@@ -102,3 +105,9 @@ chmod 700 .gnupg
 
 
 ### TODO
+
+#
+# Zoom
+#
+# Audio > "Mute my mic when joining"
+# Video > "Stop my video when joining"

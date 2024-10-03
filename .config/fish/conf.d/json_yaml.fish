@@ -10,5 +10,8 @@ alias json_view='fx'
 alias json_less='fx'
 alias jless='fx'
 
+# TODO Wrap in a function
+#alias yless='yq -C eval-all | less -R'
+
 alias norg='gron --ungron'
 alias ungron='gron --ungron'
