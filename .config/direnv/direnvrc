@@ -12,7 +12,7 @@ layout_uv() {
 
     if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
         log_status "No virtual environment exists. Executing \`uv venv\` to create one."
-        uv venv
+        uv venv --python-preference=only-managed
         VIRTUAL_ENV="$(pwd)/.venv"
     fi
 

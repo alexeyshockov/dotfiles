@@ -38,7 +38,9 @@ detect_files = [".phpbrewrc", ".php-version"]
 detect_folders = []
 
 [python]
-pyenv_version_name = true
+disabled = true  # VERY slow with pyenv...
+#pyenv_version_name = true
+# Do not show the current package
 format = 'via [${symbol}${pyenv_prefix}(${version} )]($style)'
 
 [package]
@@ -53,4 +55,7 @@ detect_files = ["global.json"]
 detect_folders = []
 
 [aws]
-force_display=true
+#force_display = true
+
+[docker_context]
+disabled = true
