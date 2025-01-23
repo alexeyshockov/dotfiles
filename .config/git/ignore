@@ -25,6 +25,8 @@ nuget
 *.exp.*
 *-exp.*
 *_exp.*
+*_exp/*
+*-exp/*
 
 # And temporary files
 tmp_*.*

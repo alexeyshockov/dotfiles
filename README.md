@@ -43,9 +43,24 @@ Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/13
 auth    sufficient    pam_tid.so
 ```
 
-### Exclude directories from Spotlight / search
+### Zend as the default editor
+
+```shell
+duti -s dev.zed.Zed public.plain-text all
+```
+
+### Spotlight and Raycast
+
+#### Exclude directories from Spotlight / search
 
 `Siri & Spotlight` > `Spotlight Privacy` > ...
+
+#### Replace Spotlight with Raycast
+
+`Keyboard` > `Keyboard Shortcuts` > `Spotlight` > ...
+`Keyboard` > `Keyboard Shortcuts` > `Input Sources` > ... (disable, to just use Caps Lock)
+
+See more: https://manual.raycast.com/hotkey
 
 ### iTerm2
 
@@ -63,6 +78,11 @@ Color scheme (already installed): https://github.com/sindresorhus/iterm2-snazzy
 ```shell
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 ```
+
+### General keyboard shortcuts
+
+- Disable `Keyboard` > `Keyboard Shortcuts` > `App Shortcuts` > `Show help menu`
+- Enable `Keyboard` > `Keyboard Shortcuts` > `Mission Control` > `Mission Control` > `Switch to Desktop 1` (and so on)
 
 ### Touch ID for remote `sudo`
 

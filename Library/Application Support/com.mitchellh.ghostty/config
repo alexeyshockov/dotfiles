@@ -1,0 +1,12 @@
+font-family = ""
+font-family = "FiraCode Nerd Font Mono"
+
+font-size = 17
+
+theme = catppuccin-macchiato
+
+macos-option-as-alt = true
+
+#keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+copy-on-select = true
