@@ -1,3 +1,5 @@
+# Based on: https://github.com/lima-vm/lima/blob/master/templates/docker.yaml
+#
 # See https://gist.github.com/akrylysov/7c1ea3bac409da2758e525f2f82e6373
 # See https://github.com/lima-vm/lima/blob/master/docs/multi-arch.md#fast-mode-2-rosetta-intel-containers-on-arm-vm-on-arm-host
 # See also https://github.com/lima-vm/lima/blob/master/docs/vmtype.md
@@ -23,25 +25,27 @@ disk: 100GiB
 
 images:
   # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-amd64.img"
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20250115/ubuntu-24.04-server-cloudimg-amd64.img"
     arch: "x86_64"
-    digest: "sha256:0e25ca6ee9f08ec5d4f9910054b66ae7163c6152e81a3e67689d89bd6e4dfa69"
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-arm64.img"
+    digest: "sha256:28d2f9df3ac0d24440eaf6998507df3405142cf94a55e1f90802c78e43d2d9df"
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20250115/ubuntu-24.04-server-cloudimg-arm64.img"
     arch: "aarch64"
-    digest: "sha256:5ecac6447be66a164626744a87a27fd4e6c6606dc683e0a233870af63df4276a"
-  # Fallback to the latest release image. Hint: run `limactl prune` to invalidate the cache.
+    digest: "sha256:f11282a728ad42f8bfe0b646a6807674d79a019bfc229d80032345dd3228a2db"
+  # Fallback to the latest release image.
+  # Hint: run `limactl prune` to invalidate the cache
   - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
     arch: "x86_64"
   - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-arm64.img"
     arch: "aarch64"
 
-mountType: virtiofs
+# virtiofs is the default for VZ, see https://lima-vm.io/docs/config/mount/
+#mountType: virtiofs
 mounts:
-# - location: "~"
-#   # CAUTION: `writable` SHOULD be false for the home directory.
-#   # Setting `writable` to true is possible, but untested and dangerous.
-#   # Builtin default: false
-#   writable: false
+  # - location: "~"
+  #   # CAUTION: `writable` SHOULD be false for the home directory.
+  #   # Setting `writable` to true is possible, but untested and dangerous.
+  #   # Builtin default: false
+  #   writable: false
   - location: "~/dev"
     writable: true
   - location: "/tmp/lima"
@@ -95,7 +99,7 @@ probes:
     hint: See "/var/log/cloud-init-output.log". in the guest
 
 hostResolver:
-  # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also resolve inside 
+  # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also resolve inside
   # containers, and not just inside the VM itself.
   hosts:
     host.docker.internal: host.lima.internal

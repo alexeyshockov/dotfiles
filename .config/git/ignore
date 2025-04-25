@@ -2,6 +2,8 @@
 # Global .gitignore (for all repos)
 #
 
+.aider*
+
 # Local .env overrides
 .env.local
 

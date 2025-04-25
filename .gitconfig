@@ -82,7 +82,7 @@
 	st = status -sb
 	s = status
 	a = add -u
-	c = "!git commit --date `gdate --utc +%Y-%m-%dT%H:%M:%S%z`"
+	c = "!git commit --date `udate --utc +%Y-%m-%dT%H:%M:%S%z`"
 	d = diff
 	dc = diff --cached
 

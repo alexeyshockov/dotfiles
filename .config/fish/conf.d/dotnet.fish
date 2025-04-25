@@ -25,4 +25,4 @@ alias dotnet-cleanup='find . -iname "bin" -o -iname "obj" -o -iname "TestResults
 
 # .NET and Fish mess up together, Fish does not expand "~/.dotnet/tools" that is in /etc/paths.d/dotnet-cli-tools
 _fish_remove_path "~/.dotnet/tools"
-fish_add_path -g $HOME/.dotnet/tools
+fish_add_path -g "$HOME/.dotnet/tools"

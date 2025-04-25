@@ -1,21 +1,23 @@
 # Alex's dotfiles
 
-To get familiar with the concept, read [this introduction from GitHub](https://dotfiles.github.io). There are many `dotfiles` repos out there, but the most popular and inspiring one is probably [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+*To get familiar with the concept, read [this introduction from GitHub](https://dotfiles.github.io).
+There are many `dotfiles` repos out there, [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) is a good example.*
 
-## Installation
+## Prerequisites
 
 First, install [Homebrew](http://brew.sh/) and follow `brew doctor`'s instructions (install XCode command line tools,..).
 
-Then just clone this repo:
+Then clone this repo:
 
 ```shell
 git clone --bare git@github.com:alexeyshockov/dotfiles.git ~/.dotfiles
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ```
 
-### Default shell
+## Default shell
 
-Fish is currently my login shell of choice. It's important to install/set if first, before installing other deps, so Homebrew installs completions for the right shell.
+Fish is currently my login shell of choice. It's important to install/set if first, before installing other deps,
+so Homebrew installs completions for the right shell.
 
 ```shell
 brew install bash fish
@@ -25,7 +27,7 @@ sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
 chsh -s /opt/homebrew/bin/fish
 ```
 
-### Homebrew apps
+## Homebrew apps
 
 Restore everything using [bundle](https://github.com/Homebrew/homebrew-bundle) (see `~/Brewfile`):
 
@@ -33,7 +35,7 @@ Restore everything using [bundle](https://github.com/Homebrew/homebrew-bundle) (
 brew bundle
 ```
 
-### MacOS
+## MacOS (various system settings)
 
 Install [this custom RU/EN keyboard layout](https://github.com/tonsky/Universal-Layout).
 
@@ -43,46 +45,29 @@ Enable [Touch ID support for `sudo`](https://apple.stackexchange.com/a/306324/13
 auth    sufficient    pam_tid.so
 ```
 
-### Zend as the default editor
+### General keyboard shortcuts
 
-```shell
-duti -s dev.zed.Zed public.plain-text all
-```
+- Disable `Keyboard` > `Keyboard Shortcuts` > `App Shortcuts` > `Show help menu`
+- Enable `Keyboard` > `Keyboard Shortcuts` > `Mission Control` > `Mission Control` > `Switch to Desktop 1` (and so on)
 
-### Spotlight and Raycast
+## Choosy (browser selection) rules
 
-#### Exclude directories from Spotlight / search
+Just link the ruleset to `~/Library/Application Support/Choosy/behaviours.plist` (import/export is not implemented at the moment, unfortunately).
+
+## Spotlight and Raycast
+
+### Exclude directories from Spotlight & Finder search
 
 `Siri & Spotlight` > `Spotlight Privacy` > ...
 
-#### Replace Spotlight with Raycast
+### Replace Spotlight with Raycast
 
 `Keyboard` > `Keyboard Shortcuts` > `Spotlight` > ...
 `Keyboard` > `Keyboard Shortcuts` > `Input Sources` > ... (disable, to just use Caps Lock)
 
 See more: https://manual.raycast.com/hotkey
 
-### iTerm2
-
-`iTerm2` > `Make iTerm2 Default Term`
-
-Color scheme (already installed): https://github.com/sindresorhus/iterm2-snazzy
-
-#### Settings
-1. open iTerm for the first time, go to `General` > `Settings`, enable `Load settings from a custom folder or URL`
-2. close the app
-3. revert autaically saved changes with `dotfiles checkout ../.config/iterm2`
-
-
-#### Shell integration
-```shell
-curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
-```
-
-### General keyboard shortcuts
-
-- Disable `Keyboard` > `Keyboard Shortcuts` > `App Shortcuts` > `Show help menu`
-- Enable `Keyboard` > `Keyboard Shortcuts` > `Mission Control` > `Mission Control` > `Switch to Desktop 1` (and so on)
+## ~~iTerm2~~ Ghostty
 
 ### Touch ID for remote `sudo`
 
@@ -102,15 +87,19 @@ sudo echo "Defaults env_keep += SSH_AUTH_SOCK" > /etc/sudoers.d/ssh-agent
 
 + add `auth sufficient pam_ssh_agent_auth.so file=~/.ssh/authorized_keys` to `/etc/pam.d/sudo`
 
-### Sublime Text
+## Editors and IDEs
 
-Install [Package Control](https://packagecontrol.io), after that all the packages should be synched automatically...
+### ~~Sublime Text~~ Zed
 
-### ~~Vim~~ Amp
+~~Install [Package Control](https://packagecontrol.io), after that all the packages should be synched automatically...~~
 
-~~Install all the plugins with `:PlugInstall`~~ Just use it
+To make it the default editor:
 
-### Docker (Lima/Colima)
+```shell
+duti -s dev.zed.Zed public.plain-text all
+```
+
+## Docker (Lima/Colima)
 
 ```shell
 limactl start --name=default ~/lima-default.yaml
@@ -122,11 +111,21 @@ docker context create lima-docker --docker "host=unix://.../sock/docker.sock"
 docker context use lima-docker
 ```
 
-#### BuildKit
+### BuildKit
 
 ```shell
 docker buildx create --name uno --node local --driver=docker-container --bootstrap --use lima-docker
 ```
+
+## AI tools
+
+### Aider
+
+```shell
+uv tool install --python python3.12 aider-chat@latest --with "google-cloud-aiplatform"
+```
+
+## Programming languages
 
 ### Rust
 
@@ -151,7 +150,3 @@ composer g install
 ```
 
 (C extensions should be installed manually using PECL, see `php-pecl-requirements.txt`).
-
-### Choosy rules
-
-Just link the ruleset to `~/Library/Application Support/Choosy/behaviours.plist` (import/export is not implemented at the moment, unfortunately).
